@@ -106,10 +106,10 @@ graph TD
     A[User uploads receipt] --> B[FastAPI validates file]
     B --> C[Create Receipt record]
     C --> D[Trigger Celery task]
-    D --> E[Gemini 2.5 Flash Lite (Vision OCR)]
+    D --> E[Gemini Vision (OCR)]
     E --> F[Generate embeddings (Gemini Embedding 001)]
-    F --> G[Vector similarity search (pgvector)]
-    G --> H[Gemini 2.5 Flash Lite (Validation & unit conversion)]
+    F --> G[Vector search (pgvector)]
+    G --> H[Gemini Validation & unit conversion]
     H --> I[Return results]
     I --> J[User confirms]
     J --> K[Update inventory]
@@ -735,30 +735,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **PGVector** - For efficient vector operations
 - **FastAPI** - For excellent async Python framework
 - **React Query** - For seamless data synchronization
-
----
-
-## 📞 Support
-
-For issues and questions:
-- 📧 Email: your-email@example.com
-- 🐛 Issues: [GitHub Issues](https://github.com/yourusername/ai-inventory/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/yourusername/ai-inventory/discussions)
-
----
-
-## 🗺️ Roadmap
-
-- [ ] Support for multiple languages
-- [ ] Mobile app (React Native)
-- [ ] Barcode scanning
-- [ ] Export reports (PDF, Excel)
-- [ ] Multi-user support with roles
-- [ ] Webhooks for integrations
-- [ ] API versioning
-- [ ] Performance monitoring
-- [ ] Automated testing suite
-- [ ] CI/CD pipeline
 
 ---
 
