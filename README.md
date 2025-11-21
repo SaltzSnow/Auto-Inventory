@@ -99,25 +99,6 @@
 
 ## 🔄 How It Works
 
-### Complete Flow
-
-```mermaid
-graph TD
-    A[User uploads receipt] --> B[FastAPI validates file]
-    B --> C[Create Receipt record]
-    C --> D[Trigger Celery task]
-    D --> E[Gemini Vision (OCR)]
-    E --> F[Generate embeddings (Gemini Embedding 001)]
-    F --> G[Vector search (pgvector)]
-    G --> H[Gemini Validation & unit conversion]
-    H --> I[Return results]
-    I --> J[User confirms]
-    J --> K[Update inventory]
-    K --> L[Create transaction]
-    L --> M[Invalidate cache]
-    M --> N[Refresh dashboard]
-```
-
 ### Detailed Steps
 
 #### 1. **Upload Receipt** 📤
