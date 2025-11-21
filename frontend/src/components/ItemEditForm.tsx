@@ -17,7 +17,7 @@ interface ItemEditFormProps {
 }
 
 export const ItemEditForm: React.FC<ItemEditFormProps> = ({ item, index, onUpdate }) => {
-  const isLowConfidence = item.confidence < 0.8;
+  const isLowConfidence = item.confidence < 0.7;
 
   return (
     <tr className={isLowConfidence ? 'bg-yellow-50' : ''}>
@@ -101,7 +101,7 @@ export const ItemEditForm: React.FC<ItemEditFormProps> = ({ item, index, onUpdat
           <div className="flex-1 bg-gray-200 rounded-full h-2 mr-2">
             <div
               className={`h-2 rounded-full ${
-                item.confidence >= 0.8 ? 'bg-green-500' : 'bg-yellow-500'
+                item.confidence >= 0.7 ? 'bg-green-500' : 'bg-yellow-500'
               }`}
               style={{ width: `${item.confidence * 100}%` }}
             />

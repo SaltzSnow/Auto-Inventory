@@ -45,7 +45,7 @@ export const ExtractedItemsList: React.FC<ExtractedItemsListProps> = ({
     );
   }
 
-  const lowConfidenceCount = items.filter((item) => item.confidence < 0.8).length;
+  const lowConfidenceCount = items.filter((item) => item.confidence < 0.7).length;
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden">

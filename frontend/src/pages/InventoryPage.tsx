@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useProducts } from '../hooks/useProducts';
 import { SearchBar } from '../components/SearchBar';
 import { ProductForm } from '../components/ProductForm';
 import { ProductDetailModal } from '../components/ProductDetailModal';
 import { EmbeddingFailureModal } from '../components/EmbeddingFailureModal';
 import { Product, ProductCreate, ProductUpdate } from '../types/product';
+import api from '../services/api';
+
+type EmbeddingProgress = {
+  total: number;
+  processed: number;
+  success: number;
+  failure: number;
+  currentBatch: number;
+  hasMore: boolean;
+  batchSize: number;
+};
 
 export const InventoryPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -17,6 +28,10 @@ export const InventoryPage: React.FC = () => {
     details: any;
     productData: ProductCreate;
   } | null>(null);
+  const [isRegenerating, setIsRegenerating] = useState(false);
+  const [embeddingProgress, setEmbeddingProgress] = useState<EmbeddingProgress | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(20);
 
   const {
     products,
@@ -30,8 +45,39 @@ export const InventoryPage: React.FC = () => {
     isDeleting,
   } = useProducts(searchQuery);
 
-  const handleSearch = (query: string) => {
-    setSearchQuery(query);
+  const handleSearch = useCallback((query: string) => {
+    setSearchQuery((prev) => {
+      if (prev !== query) {
+        setCurrentPage(1);
+        return query;
+      }
+      return prev;
+    });
+  }, []);
+
+  // Pagination calculations
+  const totalPages = Math.ceil(products.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentProducts = products.slice(startIndex, endIndex);
+
+  // Debug logging - only log when explicitly needed, not on every render
+  console.log('Current page:', currentPage, 'First product:', currentProducts[0]?.name);
+
+  const handlePageChange = (page: number) => {
+    console.log('handlePageChange called with page:', page, 'totalPages:', totalPages);
+    if (page < 1 || page > totalPages) {
+      console.log('Page out of range, ignoring');
+      return;
+    }
+    console.log('Setting currentPage to:', page);
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleItemsPerPageChange = (items: number) => {
+    setItemsPerPage(items);
+    setCurrentPage(1);
   };
 
   const handleEmbeddingFailureConfirm = () => {
@@ -155,6 +201,83 @@ export const InventoryPage: React.FC = () => {
   const isLowStock = (product: Product) =>
     product.quantity < product.reorder_point;
 
+  const handleRegenerateEmbeddings = async () => {
+    if (!window.confirm('คุณต้องการสร้าง embeddings ใหม่สำหรับสินค้าทั้งหมดหรือไม่?\n\nการดำเนินการนี้จะใช้เวลาสักครู่และจะช่วยปรับปรุงความแม่นยำในการจับคู่สินค้าจากใบเสร็จ')) {
+      return;
+    }
+
+    setIsRegenerating(true);
+    const batchSize = 20;
+    let offset = 0;
+    let totalProcessed = 0;
+    let totalSuccess = 0;
+    let totalFailure = 0;
+    let totalProducts = 0;
+    let batchNumber = 0;
+
+    setEmbeddingProgress({
+      total: 0,
+      processed: 0,
+      success: 0,
+      failure: 0,
+      currentBatch: 0,
+      hasMore: true,
+      batchSize,
+    });
+
+    try {
+      while (true) {
+        batchNumber += 1;
+        const response = await api.post(
+          '/api/products/regenerate-embeddings',
+          {},
+          {
+            params: {
+              batch_size: batchSize,
+              offset,
+            },
+          }
+        );
+
+        const result = response.data;
+        totalProducts = result.total ?? totalProducts;
+        totalProcessed += result.processed ?? 0;
+        totalSuccess += result.success ?? 0;
+        totalFailure += result.failure ?? 0;
+
+        setEmbeddingProgress({
+          total: totalProducts,
+          processed: totalProcessed,
+          success: totalSuccess,
+          failure: totalFailure,
+          currentBatch: batchNumber,
+          hasMore: result.has_more,
+          batchSize,
+        });
+
+        if (!result.has_more) {
+          break;
+        }
+
+        offset = result.next_offset ?? offset + (result.processed ?? batchSize);
+        await new Promise((resolve) => setTimeout(resolve, 1500));
+      }
+
+      alert(
+        `สร้าง embeddings ใหม่เสร็จสิ้น\n\n` +
+        `ทั้งหมด: ${totalProducts} รายการ\n` +
+        `สำเร็จ: ${totalSuccess} รายการ\n` +
+        `ล้มเหลว: ${totalFailure} รายการ`
+      );
+    } catch (error: any) {
+      const errorMsg = error.response?.data?.detail || error.message || 'เกิดข้อผิดพลาด';
+      alert(`เกิดข้อผิดพลาด: ${errorMsg}`);
+    } finally {
+      setIsRegenerating(false);
+      setEmbeddingProgress(null);
+    }
+  };
+
   if (isError) {
     return (
       <div className="p-8">
@@ -182,12 +305,28 @@ export const InventoryPage: React.FC = () => {
             debounceMs={300}
           />
         </div>
-        <button
-          onClick={handleAddNew}
-          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-        >
-          + เพิ่มสินค้าใหม่
-        </button>
+        <div className="flex flex-col gap-2 items-end">
+          <button
+            onClick={handleRegenerateEmbeddings}
+            disabled={isRegenerating}
+            className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            title="สร้าง embeddings ใหม่เพื่อปรับปรุงความแม่นยำในการจับคู่สินค้า"
+          >
+            {isRegenerating ? '⏳ กำลังสร้าง...' : '🔄 อัปเดต AI'}
+          </button>
+          {embeddingProgress && (
+            <div className="text-xs text-gray-600">
+              กำลังอัปเดต: {embeddingProgress.processed}/{embeddingProgress.total || '?'} รายการ
+              {' '}(Batch {embeddingProgress.currentBatch}, {embeddingProgress.batchSize}/ครั้ง)
+            </div>
+          )}
+          <button
+            onClick={handleAddNew}
+            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            + เพิ่มสินค้าใหม่
+          </button>
+        </div>
       </div>
 
       {isLoading ? (
@@ -228,7 +367,7 @@ export const InventoryPage: React.FC = () => {
         </div>
       ) : (
         <div className="bg-white shadow overflow-hidden rounded-lg">
-          <table className="min-w-full divide-y divide-gray-200">
+          <table className="min-w-full divide-y divide-gray-200" key={`table-page-${currentPage}`}>
             <thead className="bg-gray-50">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -251,8 +390,8 @@ export const InventoryPage: React.FC = () => {
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {products.map((product) => (
+            <tbody className="bg-white divide-y divide-gray-200" key={`tbody-page-${currentPage}`}>
+              {currentProducts.map((product) => (
                 <tr
                   key={product.id}
                   className="hover:bg-gray-50 cursor-pointer"
@@ -322,6 +461,116 @@ export const InventoryPage: React.FC = () => {
               ))}
             </tbody>
           </table>
+          
+          {/* Pagination Controls */}
+          {products.length > 0 && (
+            <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+              <div className="flex-1 flex justify-between sm:hidden">
+                <button
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  ก่อนหน้า
+                </button>
+                <button
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  ถัดไป
+                </button>
+              </div>
+              
+              <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                <div className="flex items-center gap-4">
+                  <p className="text-sm text-gray-700">
+                    แสดง <span className="font-medium">{startIndex + 1}</span> ถึง{' '}
+                    <span className="font-medium">{Math.min(endIndex, products.length)}</span> จาก{' '}
+                    <span className="font-medium">{products.length}</span> รายการ
+                  </p>
+                  
+                  <div className="flex items-center gap-2">
+                    <label htmlFor="items-per-page" className="text-sm text-gray-700">
+                      แสดงต่อหน้า:
+                    </label>
+                    <select
+                      id="items-per-page"
+                      value={itemsPerPage}
+                      onChange={(e) => handleItemsPerPageChange(Number(e.target.value))}
+                      className="border border-gray-300 rounded-md text-sm py-1 px-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                      <option value={10}>10</option>
+                      <option value={20}>20</option>
+                      <option value={50}>50</option>
+                      <option value={100}>100</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div>
+                  <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                    <button
+                      onClick={() => handlePageChange(currentPage - 1)}
+                      disabled={currentPage === 1}
+                      className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      <span className="sr-only">ก่อนหน้า</span>
+                      <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </button>
+                    
+                    {/* Page numbers */}
+                    {Array.from({ length: totalPages }, (_, i) => i + 1)
+                      .filter(page => {
+                        // Show first page, last page, current page and 2 pages around current
+                        return (
+                          page === 1 ||
+                          page === totalPages ||
+                          (page >= currentPage - 2 && page <= currentPage + 2)
+                        );
+                      })
+                      .map((page, index, array) => {
+                        // Add ellipsis
+                        const showEllipsisBefore = index > 0 && page - array[index - 1] > 1;
+                        
+                        return (
+                          <React.Fragment key={page}>
+                            {showEllipsisBefore && (
+                              <span className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
+                                ...
+                              </span>
+                            )}
+                            <button
+                              onClick={() => handlePageChange(page)}
+                              className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
+                                currentPage === page
+                                  ? 'z-10 bg-blue-50 border-blue-500 text-blue-600'
+                                  : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
+                              }`}
+                            >
+                              {page}
+                            </button>
+                          </React.Fragment>
+                        );
+                      })}
+                    
+                    <button
+                      onClick={() => handlePageChange(currentPage + 1)}
+                      disabled={currentPage === totalPages}
+                      className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      <span className="sr-only">ถัดไป</span>
+                      <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </button>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       )}
 

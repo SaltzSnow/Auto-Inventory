@@ -1,12 +1,14 @@
 """Product service for business logic."""
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, or_, text
+from sqlalchemy import select, or_, text, func
 from typing import List, Optional, Dict
+from difflib import SequenceMatcher
 from models.product import Product
 from schemas.product import ProductCreate, ProductUpdate
 from schemas.receipt import MatchedProduct, ValidatedItem
 from services.openrouter_service import openrouter_service
 from exceptions import EmbeddingFailureError
+from utils.text_normalization import normalize_thai_text
 import logging
 
 logger = logging.getLogger(__name__)
@@ -270,99 +272,209 @@ class ProductService:
         Falls back to text-based search if embedding generation fails.
         
         Uses PGVector to find the most similar product based on embedding similarity.
-        Only returns a match if similarity score is greater than 0.8.
+        Only returns a match if similarity score is greater than 0.7.
         
         Args:
             db: Database session
             item_name: Name of item to match
             
         Returns:
-            MatchedProduct if similarity > 0.8, otherwise None
+            MatchedProduct if similarity > 0.7, otherwise None
         """
+        # First attempt: vector similarity search (uses normalized text inside embedding service)
         try:
-            # Try to generate embedding for the item name
+            normalized_item = normalize_thai_text(item_name)
             embedding = await openrouter_service.generate_embedding(item_name)
-            
-            # Convert embedding list to PostgreSQL vector format
+
             embedding_str = "[" + ",".join(map(str, embedding)) + "]"
-            
-            # Execute vector similarity search query
-            query = text("""
+
+            query = text(
+                """
                 SELECT id, name, unit,
-                       1 - (embedding <=> :embedding::vector) as similarity
+                       1 - (embedding <=> (:embedding)::vector) as similarity
                 FROM products
                 WHERE embedding IS NOT NULL
-                ORDER BY embedding <=> :embedding::vector
+                ORDER BY embedding <=> (:embedding)::vector
                 LIMIT 1
-            """)
-            
-            result = await db.execute(
-                query,
-                {"embedding": embedding_str}
+                """
             )
+
+            result = await db.execute(query, {"embedding": embedding_str})
             row = result.fetchone()
-            
-            # Check if we have a result and if similarity meets threshold
-            if row and row.similarity > 0.8:
-                matched_product = MatchedProduct(
-                    product_id=str(row.id),
-                    product_name=row.name,
-                    unit=row.unit,
-                    similarity_score=float(row.similarity)
+
+            if row and row.similarity > 0.7:
+                norm_candidate = normalize_thai_text(row.name)
+                containment_boost = (
+                    normalized_item in norm_candidate or norm_candidate in normalized_item
                 )
-                
+                text_similarity = 0.95 if containment_boost else SequenceMatcher(
+                    None, normalized_item, norm_candidate
+                ).ratio()
+
+                if text_similarity >= 0.6:
+                    matched_product = MatchedProduct(
+                        product_id=str(row.id),
+                        product_name=row.name,
+                        unit=row.unit,
+                        similarity_score=float(row.similarity),
+                    )
+                    logger.info(
+                        "Vector match '%s' → '%s' (vector: %.3f, text: %.3f)",
+                        item_name,
+                        matched_product.product_name,
+                        matched_product.similarity_score,
+                        text_similarity,
+                    )
+                    return matched_product
+
                 logger.info(
-                    f"Found matching product for '{item_name}': "
-                    f"{matched_product.product_name} (similarity: {matched_product.similarity_score:.3f})"
+                    "Rejected vector match '%s' → '%s' due to low text similarity (vector: %.3f, text: %.3f)",
+                    item_name,
+                    row.name,
+                    float(row.similarity),
+                    text_similarity,
                 )
-                
-                return matched_product
-            
+
             logger.info(
-                f"No matching product found for '{item_name}' "
+                f"No vector match over threshold for '{item_name}' "
                 f"(best similarity: {row.similarity:.3f if row else 0})"
             )
-            return None
-            
         except Exception as e:
             logger.warning(
-                f"Vector search failed for '{item_name}': {str(e)}. "
-                f"Falling back to text-based search..."
+                f"Vector search failed for '{item_name}': {str(e)}. Proceeding to fuzzy fallback."
             )
-            
-            # Fallback to text-based search using ILIKE
-            try:
-                search_pattern = f"%{item_name}%"
-                result = await db.execute(
-                    select(Product)
-                    .where(Product.name.ilike(search_pattern))
-                    .order_by(Product.created_at.desc())
-                    .limit(1)
+
+        # Fallback: normalization + fuzzy matching in Python (robust for OCR spelling variants)
+        try:
+            norm_item = normalize_thai_text(item_name)
+
+            # Quick attempt: simple ILIKE on the raw name and normalized variant
+            # Note: DB stores original names; this narrows candidates but final choice uses fuzzy matching
+            candidates_result = await db.execute(
+                select(Product).order_by(Product.created_at.desc())
+            )
+            candidates = list(candidates_result.scalars().all())
+
+            best_product = None
+            best_score = 0.0
+
+            for p in candidates:
+                norm_name = normalize_thai_text(p.name)
+
+                # Containment boost
+                if norm_item in norm_name or norm_name in norm_item:
+                    score = 0.95 if norm_item == norm_name else 0.85
+                else:
+                    score = SequenceMatcher(None, norm_item, norm_name).ratio()
+
+                if score > best_score:
+                    best_score = score
+                    best_product = p
+
+            if best_product and best_score >= 0.7:
+                matched_product = MatchedProduct(
+                    product_id=str(best_product.id),
+                    product_name=best_product.name,
+                    unit=best_product.unit,
+                    similarity_score=float(best_score),
                 )
-                product = result.scalar_one_or_none()
-                
-                if product:
-                    # Use a fixed similarity score for text-based matches
-                    matched_product = MatchedProduct(
-                        product_id=str(product.id),
-                        product_name=product.name,
-                        unit=product.unit,
-                        similarity_score=0.85  # Fixed score for text matches
-                    )
-                    
-                    logger.info(
-                        f"Found matching product using text search for '{item_name}': "
-                        f"{matched_product.product_name}"
-                    )
-                    
-                    return matched_product
-                
-                logger.info(f"No matching product found for '{item_name}' using text search")
-                return None
-                
-            except Exception as text_error:
-                logger.error(f"Text-based search also failed for '{item_name}': {str(text_error)}")
-                return None
+                logger.info(
+                    f"Fuzzy matched '{item_name}' → '{best_product.name}' (score: {best_score:.3f})"
+                )
+                return matched_product
+
+            logger.info(
+                f"No fuzzy match found above threshold for '{item_name}' (best: {best_score:.3f})"
+            )
+            return None
+        except Exception as text_error:
+            logger.error(
+                f"Fallback fuzzy search failed for '{item_name}': {str(text_error)}"
+            )
+            return None
+    
+    async def regenerate_all_embeddings(
+        self,
+        db: AsyncSession,
+        offset: int = 0,
+        batch_size: Optional[int] = None,
+        skip_cache: bool = False
+    ) -> Dict[str, any]:
+        """
+        Regenerate embeddings for all products.
+        
+        This is useful when:
+        - Text normalization rules are updated
+        - Embedding model is changed
+        - Products were created without embeddings
+        - Cached embeddings must be bypassed (e.g., after switching models)
+        
+        Args:
+            db: Database session
+            
+        Returns:
+            Dictionary with success/failure counts and details
+        """
+        total_result = await db.execute(select(func.count()).select_from(Product))
+        total_products = total_result.scalar_one_or_none() or 0
+
+        query = select(Product).order_by(Product.created_at.desc())
+        if offset:
+            query = query.offset(offset)
+        if batch_size is not None:
+            query = query.limit(batch_size)
+
+        result = await db.execute(query)
+        products = result.scalars().all()
+        processed_count = len(products)
+        
+        success_count = 0
+        failure_count = 0
+        failures = []
+        
+        for product in products:
+            try:
+                embedding = await openrouter_service.generate_embedding(
+                    product.name,
+                    bypass_cache=skip_cache
+                )
+                product.embedding = embedding
+                success_count += 1
+                logger.info(f"Regenerated embedding for product: {product.name}")
+            except Exception as e:
+                failure_count += 1
+                failures.append({
+                    "product_id": str(product.id),
+                    "product_name": product.name,
+                    "error": str(e)
+                })
+                logger.error(f"Failed to regenerate embedding for product '{product.name}': {str(e)}")
+
+        if processed_count:
+            await db.flush()
+        
+        logger.info(
+            f"Embedding regeneration complete: {success_count} succeeded, {failure_count} failed"
+        )
+        
+        has_more = (
+            batch_size is not None and
+            (offset + processed_count) < total_products
+        )
+
+        next_offset = (offset + processed_count) if has_more else None
+
+        return {
+            "total": total_products,
+            "processed": processed_count,
+            "success": success_count,
+            "failure": failure_count,
+            "failures": failures,
+            "offset": offset,
+            "batch_size": batch_size if batch_size is not None else processed_count,
+            "next_offset": next_offset,
+            "has_more": has_more
+        }
     
     async def update_inventory(
         self,

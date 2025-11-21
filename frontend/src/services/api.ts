@@ -1,13 +1,15 @@
 import axios from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+export const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+const rawTimeout = process.env.REACT_APP_API_TIMEOUT;
+const API_TIMEOUT = rawTimeout !== undefined ? Number(rawTimeout) : 0; // 0 = no timeout
 
 export const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 30000,
+  timeout: API_TIMEOUT,
 });
 
 // Request interceptor for logging

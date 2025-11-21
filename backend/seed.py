@@ -31,7 +31,7 @@ async def generate_embedding(text: str) -> list[float]:
                     'Content-Type': 'application/json'
                 },
                 json={
-                    'model': 'openai/text-embedding-ada-002',
+                    'model': 'google/gemini-embedding-001',
                     'input': text
                 }
             )

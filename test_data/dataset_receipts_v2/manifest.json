@@ -1,0 +1,2321 @@
+[
+  {
+    "file": "dataset_receipt_v2_001.png",
+    "store_name": "บางกอกออร์แกนิก",
+    "branch": "สาขาลาดพร้าว",
+    "address": "78/4 ถ.เยาวราช อ.เมือง จ.ภูเก็ต",
+    "cashier": "Beam",
+    "issued_at": "2025-11-15T21:10:05.392429",
+    "invoice_no": "EV251115-3375",
+    "payment_method": "พร้อมเพย์",
+    "items": [
+      {
+        "name": "ขนมแผง5บ.",
+        "unit": "แผง",
+        "qty": 2,
+        "unit_price": 44.64,
+        "total": 89.28
+      },
+      {
+        "name": "โก๋แก่ลิสงทรงเครื่อง5บ.",
+        "unit": "เเพ็ค",
+        "qty": 2,
+        "unit_price": 51.69,
+        "total": 103.38
+      },
+      {
+        "name": "กระทิงแดงขวดเล็ก50ขวด",
+        "unit": "ลัง",
+        "qty": 5,
+        "unit_price": 395.41,
+        "total": 1977.05
+      },
+      {
+        "name": "ก๊อบกอบสาหร่าย20บ.",
+        "unit": "แพ็ค",
+        "qty": 4,
+        "unit_price": 55.76,
+        "total": 223.04
+      },
+      {
+        "name": "กรีนนี่สตรอเบอร์รี่",
+        "unit": "แพ็ค",
+        "qty": 5,
+        "unit_price": 50.2,
+        "total": 251.0
+      },
+      {
+        "name": "กล้องส่องภาพ20บ.",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 109.47,
+        "total": 437.88
+      }
+    ],
+    "totals": {
+      "subtotal": 3081.63,
+      "discount": 10.0,
+      "taxable_amount": 3071.63,
+      "vat_rate": 0.0,
+      "vat_amount": 0.0,
+      "grand_total": 3071.63,
+      "payment_received": 3071.63,
+      "change_due": 0.0
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_002.png",
+    "store_name": "ภูเก็ตเดลี่",
+    "branch": "สาขาภูเก็ต",
+    "address": "459 ม.5 ต.คลองหนึ่ง อ.คลองหลวง จ.ปทุมธานี",
+    "cashier": "Nicha",
+    "issued_at": "2025-08-25T08:10:05.392605",
+    "invoice_no": "EV250825-6808",
+    "payment_method": "โอนผ่านโมบายแบงก์",
+    "items": [
+      {
+        "name": "ไก่บีบมีเสียง20บ.",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 94.74,
+        "total": 378.96
+      },
+      {
+        "name": "โก๋แก่ลิสงวาซาบิ20บ.",
+        "unit": "เเพ็ค",
+        "qty": 4,
+        "unit_price": 94.77,
+        "total": 379.08
+      },
+      {
+        "name": "กาโตะองุ่นเคียวโฮ",
+        "unit": "เเพ็ค",
+        "qty": 1,
+        "unit_price": 52.13,
+        "total": 52.13
+      },
+      {
+        "name": "ขนมปังเอ็มดีรสไข่เค็ม",
+        "unit": "เเพ็ค",
+        "qty": 4,
+        "unit_price": 44.64,
+        "total": 178.56
+      },
+      {
+        "name": "กระเทียม",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 45.88,
+        "total": 137.64
+      },
+      {
+        "name": "กาวกากเพชร5บ.",
+        "unit": "แผง",
+        "qty": 1,
+        "unit_price": 46.13,
+        "total": 46.13
+      },
+      {
+        "name": "โก๋เเก่รสไก่5บ.",
+        "unit": "แพ็ค",
+        "qty": 2,
+        "unit_price": 44.78,
+        "total": 89.56
+      },
+      {
+        "name": "กระเป๋าผ้าระบายสี15บ.",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 68.94,
+        "total": 206.82
+      },
+      {
+        "name": "กระเป๋าตังค์25บ.",
+        "unit": "แผง",
+        "qty": 2,
+        "unit_price": 117.72,
+        "total": 235.44
+      }
+    ],
+    "totals": {
+      "subtotal": 1704.32,
+      "discount": 0.0,
+      "taxable_amount": 1704.32,
+      "vat_rate": 0.07,
+      "vat_amount": 111.5,
+      "grand_total": 1704.32,
+      "payment_received": 1704.32,
+      "change_due": 0.0
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_003.png",
+    "store_name": "บจก.ไทยซุปเปอร์",
+    "branch": "สาขาเชียงใหม่",
+    "address": "99 หมู่บ้านริมทะเล ต.หัวหิน อ.หัวหิน จ.ประจวบฯ",
+    "cashier": "Beam",
+    "issued_at": "2025-10-27T11:10:05.392683",
+    "invoice_no": "EV251027-8945",
+    "payment_method": "โอนผ่านโมบายแบงก์",
+    "items": [
+      {
+        "name": "กีอบกอบต้มข่าไก่5บ.",
+        "unit": "แพ็ค",
+        "qty": 3,
+        "unit_price": 50.99,
+        "total": 152.97
+      },
+      {
+        "name": "เกมส์กด50บ.",
+        "unit": "แผง",
+        "qty": 1,
+        "unit_price": 286.55,
+        "total": 286.55
+      },
+      {
+        "name": "กระเป๋าตังค์20บ.(12ชิ้น)",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 219.28,
+        "total": 657.84
+      },
+      {
+        "name": "กรีนเมทกระป๋องลิ้นจี่(24กป)",
+        "unit": "ลัง",
+        "qty": 4,
+        "unit_price": 251.18,
+        "total": 1004.72
+      },
+      {
+        "name": "ไก่ย่างเเดง20บ.",
+        "unit": "แพ็ค",
+        "qty": 1,
+        "unit_price": 51.74,
+        "total": 51.74
+      },
+      {
+        "name": "เกมส์งู+หมากฮอส20บ.",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 106.89,
+        "total": 320.67
+      },
+      {
+        "name": "กรีนเมทกระป๋อง6กป.มะพร้าว",
+        "unit": "เเพ็ค",
+        "qty": 4,
+        "unit_price": 62.81,
+        "total": 251.24
+      },
+      {
+        "name": "แก้ปวดเม็ดสีชมพู",
+        "unit": "เเพ็ค",
+        "qty": 2,
+        "unit_price": 15.63,
+        "total": 31.26
+      },
+      {
+        "name": "กระบองไฟ15บ.",
+        "unit": "แผง",
+        "qty": 1,
+        "unit_price": 79.17,
+        "total": 79.17
+      },
+      {
+        "name": "เเฟมกลิ่นโคล่า",
+        "unit": "แพ็ค",
+        "qty": 3,
+        "unit_price": 48.24,
+        "total": 144.72
+      }
+    ],
+    "totals": {
+      "subtotal": 2980.88,
+      "discount": 0.0,
+      "taxable_amount": 2980.88,
+      "vat_rate": 0.0,
+      "vat_amount": 0.0,
+      "grand_total": 2980.88,
+      "payment_received": 2980.88,
+      "change_due": 0.0
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_004.png",
+    "store_name": "บจก.ไทยซุปเปอร์",
+    "branch": "สาขานครปฐม",
+    "address": "78/4 ถ.เยาวราช อ.เมือง จ.ภูเก็ต",
+    "cashier": "Beam",
+    "issued_at": "2025-09-11T11:10:05.392725",
+    "invoice_no": "EV250911-3992",
+    "payment_method": "พร้อมเพย์",
+    "items": [
+      {
+        "name": "กระดานเขียนลบ35บ.",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 179.42,
+        "total": 538.26
+      },
+      {
+        "name": "กล้องส่องทางไกล18บ.",
+        "unit": "แผง",
+        "qty": 5,
+        "unit_price": 89.82,
+        "total": 449.1
+      },
+      {
+        "name": "กระโดดร่ม5บ.",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 50.99,
+        "total": 203.96
+      },
+      {
+        "name": "กระดานเขียนลบ30บ.",
+        "unit": "แผง",
+        "qty": 1,
+        "unit_price": 152.16,
+        "total": 152.16
+      },
+      {
+        "name": "ก๊อบกอลต้มยำกุ้ง5บ.",
+        "unit": "แพ็ค",
+        "qty": 5,
+        "unit_price": 48.11,
+        "total": 240.55
+      }
+    ],
+    "totals": {
+      "subtotal": 1584.03,
+      "discount": 5.0,
+      "taxable_amount": 1579.03,
+      "vat_rate": 0.07,
+      "vat_amount": 103.3,
+      "grand_total": 1579.03,
+      "payment_received": 1579.03,
+      "change_due": 0.0
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_005.png",
+    "store_name": "บจก.ไทยซุปเปอร์",
+    "branch": "สาขานครปฐม",
+    "address": "99 หมู่บ้านริมทะเล ต.หัวหิน อ.หัวหิน จ.ประจวบฯ",
+    "cashier": "Nicha",
+    "issued_at": "2025-10-03T18:10:05.392753",
+    "invoice_no": "EV251003-6053",
+    "payment_method": "โอนผ่านโมบายแบงก์",
+    "items": [
+      {
+        "name": "โกํแก่ถั่วลิสงแผ่นทอด5บ.",
+        "unit": "เเพ็ค",
+        "qty": 4,
+        "unit_price": 46.66,
+        "total": 186.64
+      },
+      {
+        "name": "กล่องจิวเวอร์รี่25บ.",
+        "unit": "แผง",
+        "qty": 2,
+        "unit_price": 126.02,
+        "total": 252.04
+      },
+      {
+        "name": "โกโก้แคทเธอรีน10บ.",
+        "unit": "เเพ็ค",
+        "qty": 4,
+        "unit_price": 161.6,
+        "total": 646.4
+      },
+      {
+        "name": "ขนมอบพองสอดไส้ครีม20บ.",
+        "unit": "เเพ็ค",
+        "qty": 2,
+        "unit_price": 50.65,
+        "total": 101.3
+      }
+    ],
+    "totals": {
+      "subtotal": 1186.38,
+      "discount": 10.47,
+      "taxable_amount": 1175.91,
+      "vat_rate": 0.0,
+      "vat_amount": 0.0,
+      "grand_total": 1175.91,
+      "payment_received": 1175.91,
+      "change_due": 0.0
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_006.png",
+    "store_name": "บจก.ไทยซุปเปอร์",
+    "branch": "สาขาลาดพร้าว",
+    "address": "21/9 ถ.ศรีนครินทร์ ต.ในเมือง อ.เมืองขอนแก่น",
+    "cashier": "Beam",
+    "issued_at": "2025-09-26T18:10:05.392776",
+    "invoice_no": "EV250926-3225",
+    "payment_method": "บัตรเครดิต",
+    "items": [
+      {
+        "name": "ขนมทอดแผ่นรสบาร์บีคิว5บ.",
+        "unit": "เเพ็ค",
+        "qty": 4,
+        "unit_price": 45.32,
+        "total": 181.28
+      },
+      {
+        "name": "โก๋แก่ลิสงผสมปลากรอบ20บ.",
+        "unit": "เเพ็ค",
+        "qty": 2,
+        "unit_price": 98.86,
+        "total": 197.72
+      },
+      {
+        "name": "ขนมเกลียวทอดกรอบบาร์บีคิว",
+        "unit": "เเพ็ค",
+        "qty": 5,
+        "unit_price": 51.99,
+        "total": 259.95
+      },
+      {
+        "name": "ของเล่น10บ.บรรจุ6ชิ้น",
+        "unit": "ชิ้น",
+        "qty": 5,
+        "unit_price": 51.9,
+        "total": 259.5
+      },
+      {
+        "name": "กระเป๋าเดินทาง15บ.",
+        "unit": "ชิ้น",
+        "qty": 4,
+        "unit_price": 73.58,
+        "total": 294.32
+      },
+      {
+        "name": "ไก่ย่างเเดง20บ.",
+        "unit": "แพ็ค",
+        "qty": 5,
+        "unit_price": 49.17,
+        "total": 245.85
+      },
+      {
+        "name": "เกมส์หาคน25บ.",
+        "unit": "แผง",
+        "qty": 2,
+        "unit_price": 119.32,
+        "total": 238.64
+      },
+      {
+        "name": "ขนมเค้กไก่หยองไส้ครีม",
+        "unit": "เเพ็ค",
+        "qty": 3,
+        "unit_price": 55.82,
+        "total": 167.46
+      }
+    ],
+    "totals": {
+      "subtotal": 1844.72,
+      "discount": 0.0,
+      "taxable_amount": 1844.72,
+      "vat_rate": 0.0,
+      "vat_amount": 0.0,
+      "grand_total": 1844.72,
+      "payment_received": 1844.72,
+      "change_due": 0.0
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_007.png",
+    "store_name": "ดอนเมืองซัพพลาย",
+    "branch": "สาขาหัวหิน",
+    "address": "55/8 ถ.ห้วยแก้ว ต.ช้างเผือก อ.เมืองเชียงใหม่",
+    "cashier": "Beam",
+    "issued_at": "2025-09-12T03:10:05.392815",
+    "invoice_no": "EV250912-8323",
+    "payment_method": "เงินสด",
+    "items": [
+      {
+        "name": "เกมส์งู+หมากฮอส20บ.",
+        "unit": "แผง",
+        "qty": 2,
+        "unit_price": 108.72,
+        "total": 217.44
+      },
+      {
+        "name": "กรีนนี่รสชอค",
+        "unit": "เเพ็ค",
+        "qty": 5,
+        "unit_price": 54.33,
+        "total": 271.65
+      },
+      {
+        "name": "กรีนเมทกระป๋อง24กป.",
+        "unit": "ลัง",
+        "qty": 1,
+        "unit_price": 277.67,
+        "total": 277.67
+      },
+      {
+        "name": "เกมส์ทุบน้ำแข็ง28บ.",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 137.56,
+        "total": 550.24
+      },
+      {
+        "name": "ขวดแช่น้ำ5บ.",
+        "unit": "แผง",
+        "qty": 2,
+        "unit_price": 54.03,
+        "total": 108.06
+      },
+      {
+        "name": "FF พริกหยวก5บ.",
+        "unit": "แพ็ค",
+        "qty": 2,
+        "unit_price": 47.99,
+        "total": 95.98
+      },
+      {
+        "name": "กัมมี่ทรอริไบรท์ครอเลอร์5บ.",
+        "unit": "เเพ็ค",
+        "qty": 3,
+        "unit_price": 49.53,
+        "total": 148.59
+      }
+    ],
+    "totals": {
+      "subtotal": 1669.63,
+      "discount": 5.0,
+      "taxable_amount": 1664.63,
+      "vat_rate": 0.0,
+      "vat_amount": 0.0,
+      "grand_total": 1664.63,
+      "payment_received": 1681.79,
+      "change_due": 17.16
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_008.png",
+    "store_name": "ดอนเมืองซัพพลาย",
+    "branch": "สาขานครปฐม",
+    "address": "99 หมู่บ้านริมทะเล ต.หัวหิน อ.หัวหิน จ.ประจวบฯ",
+    "cashier": "Somchai",
+    "issued_at": "2025-09-18T21:10:05.392852",
+    "invoice_no": "EV250918-8285",
+    "payment_method": "เงินสด",
+    "items": [
+      {
+        "name": "กล่องสมุด25บ.",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 127.2,
+        "total": 381.6
+      },
+      {
+        "name": "กล้องส่องทางไกล18บ.",
+        "unit": "แผง",
+        "qty": 5,
+        "unit_price": 87.76,
+        "total": 438.8
+      },
+      {
+        "name": "เกมส์หาคน25บ.",
+        "unit": "แผง",
+        "qty": 5,
+        "unit_price": 114.43,
+        "total": 572.15
+      },
+      {
+        "name": "กีตาร์22บ.",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 122.41,
+        "total": 367.23
+      },
+      {
+        "name": "แก้ไออาปาเช่6ขวด",
+        "unit": "เเพ็ค",
+        "qty": 3,
+        "unit_price": 108.78,
+        "total": 326.34
+      },
+      {
+        "name": "กิ๊ฟดำ5บ.",
+        "unit": "ชิ้น",
+        "qty": 3,
+        "unit_price": 49.52,
+        "total": 148.56
+      },
+      {
+        "name": "กันกระแทก5บ.",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 53.24,
+        "total": 159.72
+      },
+      {
+        "name": "กรีนนี่ชอคโกแลตส้ม",
+        "unit": "เเพ็ค",
+        "qty": 5,
+        "unit_price": 52.13,
+        "total": 260.65
+      },
+      {
+        "name": "ก๊อบกอบรสเฟรนซ์ชิลลี่20บ.",
+        "unit": "เเพ็ค",
+        "qty": 5,
+        "unit_price": 53.8,
+        "total": 269.0
+      },
+      {
+        "name": "กรีนเมทฟ้กกระป๋อง24กป.",
+        "unit": "ลัง",
+        "qty": 5,
+        "unit_price": 276.52,
+        "total": 1382.6
+      }
+    ],
+    "totals": {
+      "subtotal": 4306.65,
+      "discount": 5.0,
+      "taxable_amount": 4301.65,
+      "vat_rate": 0.07,
+      "vat_amount": 281.42,
+      "grand_total": 4301.65,
+      "payment_received": 4335.96,
+      "change_due": 34.31
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_009.png",
+    "store_name": "สุขใจซูเปอร์",
+    "branch": "สาขาสยาม",
+    "address": "123 ถนนสุขุมวิท เขตวัฒนา กรุงเทพฯ 10110",
+    "cashier": "Nam",
+    "issued_at": "2025-08-04T07:10:05.392890",
+    "invoice_no": "EV250804-2909",
+    "payment_method": "โอนผ่านโมบายแบงก์",
+    "items": [
+      {
+        "name": "โก๋แก่รสกุ้ง5บ.",
+        "unit": "เเพ็ค",
+        "qty": 2,
+        "unit_price": 45.68,
+        "total": 91.36
+      },
+      {
+        "name": "กุหลาบหมี20บ.(6ชิ้น)",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 100.43,
+        "total": 301.29
+      },
+      {
+        "name": "กัมมี่ยูปี้เบอร์เกอร์2บ.",
+        "unit": "เเพ็ค",
+        "qty": 5,
+        "unit_price": 37.52,
+        "total": 187.6
+      },
+      {
+        "name": "กาวกากเพชร5บ.",
+        "unit": "แผง",
+        "qty": 2,
+        "unit_price": 47.15,
+        "total": 94.3
+      },
+      {
+        "name": "การ์ดการ์ตูนปักเพชร25บ.(6ชิ้น)",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 132.85,
+        "total": 531.4
+      },
+      {
+        "name": "โก๋เเก่ถั่วลิสงอบกรอบ5บ.",
+        "unit": "แพ็ค",
+        "qty": 4,
+        "unit_price": 50.34,
+        "total": 201.36
+      },
+      {
+        "name": "โก๋เเก่กาเเฟ20บ.",
+        "unit": "แพ็ค",
+        "qty": 1,
+        "unit_price": 109.57,
+        "total": 109.57
+      },
+      {
+        "name": "ขนมขาไก่รสหม่าล่า20บ.",
+        "unit": "เเพ็ค",
+        "qty": 5,
+        "unit_price": 105.97,
+        "total": 529.85
+      },
+      {
+        "name": "โก๋แก่ลิสงผสมปลากรอบ20บ.",
+        "unit": "เเพ็ค",
+        "qty": 3,
+        "unit_price": 101.28,
+        "total": 303.84
+      }
+    ],
+    "totals": {
+      "subtotal": 2350.57,
+      "discount": 5.0,
+      "taxable_amount": 2345.57,
+      "vat_rate": 0.0,
+      "vat_amount": 0.0,
+      "grand_total": 2345.57,
+      "payment_received": 2345.57,
+      "change_due": 0.0
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_010.png",
+    "store_name": "บางกอกออร์แกนิก",
+    "branch": "สาขานครปฐม",
+    "address": "78/4 ถ.เยาวราช อ.เมือง จ.ภูเก็ต",
+    "cashier": "Apin",
+    "issued_at": "2025-08-20T04:10:05.392940",
+    "invoice_no": "EV250820-3839",
+    "payment_method": "เงินสด",
+    "items": [
+      {
+        "name": "โก๋เเก่ถั่วลิสงอบกรอบน้ำจิ้มไก่5บ.",
+        "unit": "แพ็ค",
+        "qty": 1,
+        "unit_price": 52.86,
+        "total": 52.86
+      },
+      {
+        "name": "ขนมอบพองแท่ง5บ.",
+        "unit": "เเพ็ค",
+        "qty": 3,
+        "unit_price": 44.08,
+        "total": 132.24
+      },
+      {
+        "name": "กระติกน้ำร้อน",
+        "unit": "เเพ็ค",
+        "qty": 4,
+        "unit_price": 54.93,
+        "total": 219.72
+      },
+      {
+        "name": "ข้าวเกรียบกุ้งกินดี5บ.",
+        "unit": "ชิ้น",
+        "qty": 2,
+        "unit_price": 56.32,
+        "total": 112.64
+      },
+      {
+        "name": "กุหลาบ6บ.",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 65.72,
+        "total": 197.16
+      },
+      {
+        "name": "กิ๊บลูกปัดสุดน่ารัก",
+        "unit": "เเพ็ค",
+        "qty": 5,
+        "unit_price": 23.87,
+        "total": 119.35
+      },
+      {
+        "name": "ขนมทอดกรอบรสสาหร่าย20บ.",
+        "unit": "เเพ็ค",
+        "qty": 2,
+        "unit_price": 46.25,
+        "total": 92.5
+      },
+      {
+        "name": "กีตาร์22บ.",
+        "unit": "แผง",
+        "qty": 1,
+        "unit_price": 110.91,
+        "total": 110.91
+      },
+      {
+        "name": "almond white&dark chocolate",
+        "unit": "เเพ็ค",
+        "qty": 1,
+        "unit_price": 74.16,
+        "total": 74.16
+      },
+      {
+        "name": "ไก่บีบมีเสียง20บ.",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 109.14,
+        "total": 327.42
+      }
+    ],
+    "totals": {
+      "subtotal": 1438.96,
+      "discount": 5.0,
+      "taxable_amount": 1433.96,
+      "vat_rate": 0.0,
+      "vat_amount": 0.0,
+      "grand_total": 1433.96,
+      "payment_received": 1447.23,
+      "change_due": 13.27
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_011.png",
+    "store_name": "เชียงใหม่มินิมาร์ท",
+    "branch": "สาขานครปฐม",
+    "address": "123 ถนนสุขุมวิท เขตวัฒนา กรุงเทพฯ 10110",
+    "cashier": "Somchai",
+    "issued_at": "2025-10-30T02:10:05.392983",
+    "invoice_no": "EV251030-2725",
+    "payment_method": "พร้อมเพย์",
+    "items": [
+      {
+        "name": "กระดานเขียนลบ35บ.",
+        "unit": "แผง",
+        "qty": 2,
+        "unit_price": 165.89,
+        "total": 331.78
+      },
+      {
+        "name": "เกมส์ทุบน้ำแข็ง15บ.(12ชิ้น)",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 154.17,
+        "total": 616.68
+      },
+      {
+        "name": "FF มะเขือเทศ20บ.",
+        "unit": "แพ็ค",
+        "qty": 1,
+        "unit_price": 51.53,
+        "total": 51.53
+      },
+      {
+        "name": "almond chocolate&white chocolate",
+        "unit": "เเพ็ค",
+        "qty": 4,
+        "unit_price": 80.59,
+        "total": 322.36
+      },
+      {
+        "name": "กาแลคซี่รสนม20บ.",
+        "unit": "เเพ็ค",
+        "qty": 1,
+        "unit_price": 49.87,
+        "total": 49.87
+      },
+      {
+        "name": "ขนมปังยืด25บ.",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 112.56,
+        "total": 337.68
+      },
+      {
+        "name": "กระเป๋าเจ้าหญิง",
+        "unit": "แพ็ค",
+        "qty": 5,
+        "unit_price": 83.52,
+        "total": 417.6
+      },
+      {
+        "name": "กาวิสคอน",
+        "unit": "กล่อง",
+        "qty": 4,
+        "unit_price": 671.7,
+        "total": 2686.8
+      }
+    ],
+    "totals": {
+      "subtotal": 4814.3,
+      "discount": 14.46,
+      "taxable_amount": 4799.84,
+      "vat_rate": 0.07,
+      "vat_amount": 314.01,
+      "grand_total": 4799.84,
+      "payment_received": 4799.84,
+      "change_due": 0.0
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_012.png",
+    "store_name": "บางกอกออร์แกนิก",
+    "branch": "สาขาหัวหิน",
+    "address": "123 ถนนสุขุมวิท เขตวัฒนา กรุงเทพฯ 10110",
+    "cashier": "Somchai",
+    "issued_at": "2025-11-09T15:10:05.393019",
+    "invoice_no": "EV251109-7295",
+    "payment_method": "เงินสด",
+    "items": [
+      {
+        "name": "เกมส์บันไดงู30บ.",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 161.76,
+        "total": 485.28
+      },
+      {
+        "name": "กระเป๋าซาริโอ้20บ.",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 95.56,
+        "total": 286.68
+      },
+      {
+        "name": "ไก่ย่างน่องไก่5บ.",
+        "unit": "เเพ็ค",
+        "qty": 1,
+        "unit_price": 45.3,
+        "total": 45.3
+      },
+      {
+        "name": "กัมมี่ยูปี้นีออนสติ้ก5บ.",
+        "unit": "เเพ็ค",
+        "qty": 3,
+        "unit_price": 43.93,
+        "total": 131.79
+      },
+      {
+        "name": "กรีนเมทกระป๋องลิ้นจี่(24กป)",
+        "unit": "ลัง",
+        "qty": 5,
+        "unit_price": 301.61,
+        "total": 1508.05
+      },
+      {
+        "name": "โกํแก่ถั่วลิสงแผ่นทอด5บ.",
+        "unit": "เเพ็ค",
+        "qty": 2,
+        "unit_price": 46.82,
+        "total": 93.64
+      },
+      {
+        "name": "กิ๊บติดผมDIY30บ.",
+        "unit": "แผง",
+        "qty": 2,
+        "unit_price": 154.13,
+        "total": 308.26
+      },
+      {
+        "name": "กระทิงแดงขวดใหญ่",
+        "unit": "ชิ้น",
+        "qty": 1,
+        "unit_price": 109.93,
+        "total": 109.93
+      },
+      {
+        "name": "กาแฟกระชายดำ10บ.",
+        "unit": "เเพ็ค",
+        "qty": 2,
+        "unit_price": 191.54,
+        "total": 383.08
+      }
+    ],
+    "totals": {
+      "subtotal": 3352.01,
+      "discount": 0.0,
+      "taxable_amount": 3352.01,
+      "vat_rate": 0.0,
+      "vat_amount": 0.0,
+      "grand_total": 3352.01,
+      "payment_received": 3369.02,
+      "change_due": 17.01
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_013.png",
+    "store_name": "ดอนเมืองซัพพลาย",
+    "branch": "สาขาเชียงใหม่",
+    "address": "21/9 ถ.ศรีนครินทร์ ต.ในเมือง อ.เมืองขอนแก่น",
+    "cashier": "Nicha",
+    "issued_at": "2025-08-15T23:10:05.393051",
+    "invoice_no": "EV250815-9753",
+    "payment_method": "บัตรเครดิต",
+    "items": [
+      {
+        "name": "กระเป๋า45บ.",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 254.68,
+        "total": 764.04
+      },
+      {
+        "name": "FFสติ้กรสปลาหมึกย่าง20บ.",
+        "unit": "เเพ็ค",
+        "qty": 4,
+        "unit_price": 54.48,
+        "total": 217.92
+      },
+      {
+        "name": "กระดาษสก็อตป๊อปอัพ15บ.",
+        "unit": "เเพ็ค",
+        "qty": 3,
+        "unit_price": 335.58,
+        "total": 1006.74
+      },
+      {
+        "name": "กัมมี่ยูปี้เบอร์รี่โบน2บ.",
+        "unit": "เเพ็ค",
+        "qty": 3,
+        "unit_price": 40.03,
+        "total": 120.09
+      },
+      {
+        "name": "เกมส์กีฬา35บ.",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 194.28,
+        "total": 777.12
+      },
+      {
+        "name": "เแม็กซ์เเคน",
+        "unit": "แพ็ค",
+        "qty": 1,
+        "unit_price": 49.47,
+        "total": 49.47
+      },
+      {
+        "name": "การ์ตูนมีไฟ25บ.",
+        "unit": "แผง",
+        "qty": 2,
+        "unit_price": 133.96,
+        "total": 267.92
+      },
+      {
+        "name": "กัมมี่ไข่ดาวและแฮม10บ.",
+        "unit": "เเพ็ค",
+        "qty": 1,
+        "unit_price": 96.35,
+        "total": 96.35
+      },
+      {
+        "name": "ขนมมารุมารุ5บ.",
+        "unit": "เเพ็ค",
+        "qty": 2,
+        "unit_price": 55.8,
+        "total": 111.6
+      }
+    ],
+    "totals": {
+      "subtotal": 3411.25,
+      "discount": 10.1,
+      "taxable_amount": 3401.15,
+      "vat_rate": 0.0,
+      "vat_amount": 0.0,
+      "grand_total": 3401.15,
+      "payment_received": 3401.15,
+      "change_due": 0.0
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_014.png",
+    "store_name": "ร้านโชคดีมาร์ท",
+    "branch": "สาขาสยาม",
+    "address": "21/9 ถ.ศรีนครินทร์ ต.ในเมือง อ.เมืองขอนแก่น",
+    "cashier": "Somchai",
+    "issued_at": "2025-09-16T11:10:05.393084",
+    "invoice_no": "EV250916-8260",
+    "payment_method": "เงินสด",
+    "items": [
+      {
+        "name": "ขนมทอดกรอบรสข้าวโพด20บ.",
+        "unit": "เเพ็ค",
+        "qty": 5,
+        "unit_price": 57.34,
+        "total": 286.7
+      },
+      {
+        "name": "เกมส์บันไดงู5บ.",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 47.38,
+        "total": 142.14
+      },
+      {
+        "name": "ก้อบกอบรสชิกเก้นบาร์บีคืว20บ.",
+        "unit": "เเพ็ค",
+        "qty": 4,
+        "unit_price": 46.06,
+        "total": 184.24
+      },
+      {
+        "name": "กัมมี่ไข่ดาวและแฮม10บ.",
+        "unit": "เเพ็ค",
+        "qty": 3,
+        "unit_price": 102.83,
+        "total": 308.49
+      },
+      {
+        "name": "กาแฟถั่งเช่า10บ.",
+        "unit": "แผง",
+        "qty": 5,
+        "unit_price": 194.45,
+        "total": 972.25
+      },
+      {
+        "name": "กระชายดำน้ำผึ้งM150",
+        "unit": "แพ็ค",
+        "qty": 4,
+        "unit_price": 89.43,
+        "total": 357.72
+      }
+    ],
+    "totals": {
+      "subtotal": 2251.54,
+      "discount": 5.0,
+      "taxable_amount": 2246.54,
+      "vat_rate": 0.0,
+      "vat_amount": 0.0,
+      "grand_total": 2246.54,
+      "payment_received": 2269.28,
+      "change_due": 22.74
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_015.png",
+    "store_name": "สุขใจซูเปอร์",
+    "branch": "สาขาหัวหิน",
+    "address": "78/4 ถ.เยาวราช อ.เมือง จ.ภูเก็ต",
+    "cashier": "Nam",
+    "issued_at": "2025-09-23T19:10:05.393110",
+    "invoice_no": "EV250923-5251",
+    "payment_method": "บัตรเครดิต",
+    "items": [
+      {
+        "name": "กัมมี่เบอร์รี่โคล่าไลม์",
+        "unit": "เเพ็ค",
+        "qty": 4,
+        "unit_price": 53.12,
+        "total": 212.48
+      },
+      {
+        "name": "ขนมทอดแผ่นรสสาหร่าย5บ.",
+        "unit": "เเพ็ค",
+        "qty": 2,
+        "unit_price": 50.93,
+        "total": 101.86
+      },
+      {
+        "name": "เกมส์บันไดงูกล่อง15บ.",
+        "unit": "แผง",
+        "qty": 2,
+        "unit_price": 69.93,
+        "total": 139.86
+      },
+      {
+        "name": "ไก่ย่างโกลด์20บ.",
+        "unit": "เเพ็ค",
+        "qty": 3,
+        "unit_price": 56.98,
+        "total": 170.94
+      },
+      {
+        "name": "โก๋แก่ลิสงรสพริก5บ.",
+        "unit": "เเพ็ค",
+        "qty": 1,
+        "unit_price": 43.56,
+        "total": 43.56
+      },
+      {
+        "name": "กรีนนี่สตรอเบอร์รี่",
+        "unit": "แพ็ค",
+        "qty": 1,
+        "unit_price": 54.37,
+        "total": 54.37
+      }
+    ],
+    "totals": {
+      "subtotal": 723.07,
+      "discount": 0.0,
+      "taxable_amount": 723.07,
+      "vat_rate": 0.07,
+      "vat_amount": 47.3,
+      "grand_total": 723.07,
+      "payment_received": 723.07,
+      "change_due": 0.0
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_016.png",
+    "store_name": "อีสานทรูมาร์ท",
+    "branch": "สาขาหัวหิน",
+    "address": "459 ม.5 ต.คลองหนึ่ง อ.คลองหลวง จ.ปทุมธานี",
+    "cashier": "Beam",
+    "issued_at": "2025-08-14T12:10:05.393136",
+    "invoice_no": "EV250814-5776",
+    "payment_method": "เงินสด",
+    "items": [
+      {
+        "name": "กัมมี่หมีไอศครีม5บ.",
+        "unit": "เเพ็ค",
+        "qty": 3,
+        "unit_price": 45.15,
+        "total": 135.45
+      },
+      {
+        "name": "กุมิกุมิโยเกิร์ต10บ.",
+        "unit": "เเพ็ค",
+        "qty": 1,
+        "unit_price": 54.83,
+        "total": 54.83
+      },
+      {
+        "name": "เกลือแร่ผลไม้12ซอง",
+        "unit": "ชิ้น",
+        "qty": 2,
+        "unit_price": 53.66,
+        "total": 107.32
+      },
+      {
+        "name": "ไก่ย่างเเดง5บ.",
+        "unit": "แพ็ค",
+        "qty": 2,
+        "unit_price": 49.03,
+        "total": 98.06
+      },
+      {
+        "name": "กัสเซนสตรอ",
+        "unit": "แพ็ค",
+        "qty": 2,
+        "unit_price": 44.48,
+        "total": 88.96
+      },
+      {
+        "name": "ก๊อบกอบรสเฟรนชิลี่5บ.",
+        "unit": "เเพ็ค",
+        "qty": 1,
+        "unit_price": 45.31,
+        "total": 45.31
+      },
+      {
+        "name": "กระดาษสก็อตป๊อปอัพ15บ.",
+        "unit": "เเพ็ค",
+        "qty": 4,
+        "unit_price": 375.99,
+        "total": 1503.96
+      },
+      {
+        "name": "ข้อมือยิงเหรียญ30บ.",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 138.11,
+        "total": 552.44
+      }
+    ],
+    "totals": {
+      "subtotal": 2586.33,
+      "discount": 5.0,
+      "taxable_amount": 2581.33,
+      "vat_rate": 0.07,
+      "vat_amount": 168.87,
+      "grand_total": 2581.33,
+      "payment_received": 2591.06,
+      "change_due": 9.73
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_017.png",
+    "store_name": "บางกอกออร์แกนิก",
+    "branch": "สาขาเชียงใหม่",
+    "address": "123 ถนนสุขุมวิท เขตวัฒนา กรุงเทพฯ 10110",
+    "cashier": "Nam",
+    "issued_at": "2025-10-06T12:10:05.393165",
+    "invoice_no": "EV251006-3420",
+    "payment_method": "พร้อมเพย์",
+    "items": [
+      {
+        "name": "กรอบรูป15บ.",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 139.66,
+        "total": 558.64
+      },
+      {
+        "name": "กาแฟเพียว",
+        "unit": "เเพ็ค",
+        "qty": 3,
+        "unit_price": 197.33,
+        "total": 591.99
+      },
+      {
+        "name": "กัมมี่เฟรนซ์ฟรายส์5บ.",
+        "unit": "เเพ็ค",
+        "qty": 5,
+        "unit_price": 49.75,
+        "total": 248.75
+      },
+      {
+        "name": "กระดานเขียนลบ30บ.",
+        "unit": "แผง",
+        "qty": 1,
+        "unit_price": 171.28,
+        "total": 171.28
+      },
+      {
+        "name": "การ์ด/เหรียญ",
+        "unit": "ชิ้น",
+        "qty": 1,
+        "unit_price": 45.77,
+        "total": 45.77
+      },
+      {
+        "name": "กรีนเมทกระป๋องเฉาก๊วย6กป.",
+        "unit": "เเพ็ค",
+        "qty": 2,
+        "unit_price": 74.26,
+        "total": 148.52
+      },
+      {
+        "name": "ก้อบกอบรสชิกเก้นบาร์บีคืว20บ.",
+        "unit": "เเพ็ค",
+        "qty": 5,
+        "unit_price": 56.24,
+        "total": 281.2
+      },
+      {
+        "name": "การ์ดอูโน่20บ.",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 97.24,
+        "total": 291.72
+      },
+      {
+        "name": "กระบองบีบพอง5บ.",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 55.31,
+        "total": 221.24
+      }
+    ],
+    "totals": {
+      "subtotal": 2559.11,
+      "discount": 0.0,
+      "taxable_amount": 2559.11,
+      "vat_rate": 0.0,
+      "vat_amount": 0.0,
+      "grand_total": 2559.11,
+      "payment_received": 2559.11,
+      "change_due": 0.0
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_018.png",
+    "store_name": "สยามโฮลเซล",
+    "branch": "สาขาสยาม",
+    "address": "459 ม.5 ต.คลองหนึ่ง อ.คลองหลวง จ.ปทุมธานี",
+    "cashier": "Beam",
+    "issued_at": "2025-08-04T02:10:05.393195",
+    "invoice_no": "EV250804-4033",
+    "payment_method": "บัตรเครดิต",
+    "items": [
+      {
+        "name": "กระดานเกมส์กล่อง25บ.",
+        "unit": "แผง",
+        "qty": 5,
+        "unit_price": 142.55,
+        "total": 712.75
+      },
+      {
+        "name": "กระดาษทิชชู่เดลซี่",
+        "unit": "เเพ็ค",
+        "qty": 5,
+        "unit_price": 73.8,
+        "total": 369.0
+      },
+      {
+        "name": "ขาไก่แดง20บ.(3ซอง)",
+        "unit": "ชิ้น",
+        "qty": 2,
+        "unit_price": 53.37,
+        "total": 106.74
+      },
+      {
+        "name": "DIYลาบูบู้30บ.",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 154.58,
+        "total": 618.32
+      },
+      {
+        "name": "กาแลคซี่บอล5บ.",
+        "unit": "เเพ็ค",
+        "qty": 5,
+        "unit_price": 50.75,
+        "total": 253.75
+      },
+      {
+        "name": "ของเล่น10บ.(6ชิ้น)",
+        "unit": "แผง",
+        "qty": 1,
+        "unit_price": 48.98,
+        "total": 48.98
+      },
+      {
+        "name": "โก๋แก่รสกุ้ง5บ.",
+        "unit": "เเพ็ค",
+        "qty": 2,
+        "unit_price": 53.26,
+        "total": 106.52
+      }
+    ],
+    "totals": {
+      "subtotal": 2216.06,
+      "discount": 0.0,
+      "taxable_amount": 2216.06,
+      "vat_rate": 0.07,
+      "vat_amount": 144.98,
+      "grand_total": 2216.06,
+      "payment_received": 2216.06,
+      "change_due": 0.0
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_019.png",
+    "store_name": "บางกอกออร์แกนิก",
+    "branch": "สาขาภูเก็ต",
+    "address": "99 หมู่บ้านริมทะเล ต.หัวหิน อ.หัวหิน จ.ประจวบฯ",
+    "cashier": "Nicha",
+    "issued_at": "2025-08-09T17:10:05.393222",
+    "invoice_no": "EV250809-3353",
+    "payment_method": "โอนผ่านโมบายแบงก์",
+    "items": [
+      {
+        "name": "กระเป๋าซาริโอ้20บ.",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 101.25,
+        "total": 405.0
+      },
+      {
+        "name": "กัมมี่โรลโคล่า5บ.",
+        "unit": "เเพ็ค",
+        "qty": 2,
+        "unit_price": 43.55,
+        "total": 87.1
+      },
+      {
+        "name": "ขนมเปี๊ยะไส้ไก่หยอง5บ.",
+        "unit": "เเพ็ค",
+        "qty": 4,
+        "unit_price": 52.13,
+        "total": 208.52
+      },
+      {
+        "name": "กระชายดำน้ำผึ้งM150",
+        "unit": "แพ็ค",
+        "qty": 1,
+        "unit_price": 90.59,
+        "total": 90.59
+      },
+      {
+        "name": "ขวดนมโดนัท5บ.",
+        "unit": "เเพ็ค",
+        "qty": 2,
+        "unit_price": 55.12,
+        "total": 110.24
+      },
+      {
+        "name": "กรีนนี่แท่งรสนม",
+        "unit": "เเพ็ค",
+        "qty": 4,
+        "unit_price": 55.97,
+        "total": 223.88
+      },
+      {
+        "name": "กระดานเขียนลบ35บ.",
+        "unit": "แผง",
+        "qty": 1,
+        "unit_price": 196.54,
+        "total": 196.54
+      },
+      {
+        "name": "กระดาษทิชชู่วีวี่",
+        "unit": "ลัง",
+        "qty": 5,
+        "unit_price": 763.5,
+        "total": 3817.5
+      },
+      {
+        "name": "ขนมอบพองแท่งปาก5บ.",
+        "unit": "เเพ็ค",
+        "qty": 2,
+        "unit_price": 54.81,
+        "total": 109.62
+      },
+      {
+        "name": "กิ๊บติดผมDIY30บ.",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 160.91,
+        "total": 482.73
+      }
+    ],
+    "totals": {
+      "subtotal": 5731.72,
+      "discount": 0.0,
+      "taxable_amount": 5731.72,
+      "vat_rate": 0.0,
+      "vat_amount": 0.0,
+      "grand_total": 5731.72,
+      "payment_received": 5731.72,
+      "change_due": 0.0
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_020.png",
+    "store_name": "บจก.ไทยซุปเปอร์",
+    "branch": "สาขาสยาม",
+    "address": "99 หมู่บ้านริมทะเล ต.หัวหิน อ.หัวหิน จ.ประจวบฯ",
+    "cashier": "May",
+    "issued_at": "2025-09-24T12:10:05.393274",
+    "invoice_no": "EV250924-8022",
+    "payment_method": "เงินสด",
+    "items": [
+      {
+        "name": "กุหลาบ6บ.",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 67.53,
+        "total": 270.12
+      },
+      {
+        "name": "แก้ว6ออนซ์",
+        "unit": "เเพ็ค",
+        "qty": 3,
+        "unit_price": 14.73,
+        "total": 44.19
+      },
+      {
+        "name": "ขนมแท่งรสมันฝรั่ง5บ.",
+        "unit": "เเพ็ค",
+        "qty": 2,
+        "unit_price": 52.28,
+        "total": 104.56
+      },
+      {
+        "name": "ขนมอบพองแบบแท่งรสเผ็ด5บ.",
+        "unit": "เเพ็ค",
+        "qty": 1,
+        "unit_price": 46.34,
+        "total": 46.34
+      },
+      {
+        "name": "กังหัน4บ.",
+        "unit": "แผง",
+        "qty": 1,
+        "unit_price": 40.24,
+        "total": 40.24
+      },
+      {
+        "name": "กากเพชร5บ.",
+        "unit": "แผง",
+        "qty": 2,
+        "unit_price": 50.02,
+        "total": 100.04
+      },
+      {
+        "name": "กล่องสมุด25บ.",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 116.91,
+        "total": 467.64
+      }
+    ],
+    "totals": {
+      "subtotal": 1073.13,
+      "discount": 0.0,
+      "taxable_amount": 1073.13,
+      "vat_rate": 0.07,
+      "vat_amount": 70.2,
+      "grand_total": 1073.13,
+      "payment_received": 1109.37,
+      "change_due": 36.24
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_021.png",
+    "store_name": "บจก.ไทยซุปเปอร์",
+    "branch": "สาขาบางแค",
+    "address": "21/9 ถ.ศรีนครินทร์ ต.ในเมือง อ.เมืองขอนแก่น",
+    "cashier": "Apin",
+    "issued_at": "2025-09-17T22:10:05.393342",
+    "invoice_no": "EV250917-4233",
+    "payment_method": "โอนผ่านโมบายแบงก์",
+    "items": [
+      {
+        "name": "กลอง25บ.",
+        "unit": "แผง",
+        "qty": 5,
+        "unit_price": 137.21,
+        "total": 686.05
+      },
+      {
+        "name": "ขนมทอดกรอบรสบาร์บีคิว20บ.",
+        "unit": "เเพ็ค",
+        "qty": 3,
+        "unit_price": 56.2,
+        "total": 168.6
+      },
+      {
+        "name": "กิ๊บลูกปัดสุดน่ารัก",
+        "unit": "เเพ็ค",
+        "qty": 4,
+        "unit_price": 27.28,
+        "total": 109.12
+      },
+      {
+        "name": "ของเล่น10บ.บรรจุ6ชิ้น",
+        "unit": "ชิ้น",
+        "qty": 2,
+        "unit_price": 46.47,
+        "total": 92.94
+      },
+      {
+        "name": "แก้ว20ออนซ์",
+        "unit": "ชิ้น",
+        "qty": 5,
+        "unit_price": 41.83,
+        "total": 209.15
+      },
+      {
+        "name": "เเลกทาโร่",
+        "unit": "แผง",
+        "qty": 1,
+        "unit_price": 2.06,
+        "total": 2.06
+      },
+      {
+        "name": "โก๋แก่ลิสงผสมปลากรอบ20บ.",
+        "unit": "เเพ็ค",
+        "qty": 3,
+        "unit_price": 112.55,
+        "total": 337.65
+      }
+    ],
+    "totals": {
+      "subtotal": 1605.57,
+      "discount": 0.0,
+      "taxable_amount": 1605.57,
+      "vat_rate": 0.0,
+      "vat_amount": 0.0,
+      "grand_total": 1605.57,
+      "payment_received": 1605.57,
+      "change_due": 0.0
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_022.png",
+    "store_name": "ร้านโชคดีมาร์ท",
+    "branch": "สาขาลาดพร้าว",
+    "address": "459 ม.5 ต.คลองหนึ่ง อ.คลองหลวง จ.ปทุมธานี",
+    "cashier": "Nam",
+    "issued_at": "2025-11-08T13:10:05.393408",
+    "invoice_no": "EV251108-9786",
+    "payment_method": "บัตรเครดิต",
+    "items": [
+      {
+        "name": "ของเล่น10บ.บรรจุ6ชิ้น",
+        "unit": "ชิ้น",
+        "qty": 1,
+        "unit_price": 49.93,
+        "total": 49.93
+      },
+      {
+        "name": "DIYลาบูบู้30บ.",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 144.4,
+        "total": 433.2
+      },
+      {
+        "name": "ไก่บีบ25บ.",
+        "unit": "แผง",
+        "qty": 1,
+        "unit_price": 136.72,
+        "total": 136.72
+      },
+      {
+        "name": "โก๋เเก่บาร์บีคิว5บ.",
+        "unit": "แพ็ก",
+        "qty": 3,
+        "unit_price": 48.67,
+        "total": 146.01
+      },
+      {
+        "name": "กล่องตุ๊กตาLOL30บ.",
+        "unit": "แผง",
+        "qty": 2,
+        "unit_price": 136.68,
+        "total": 273.36
+      },
+      {
+        "name": "กัมมี่หมีแฮมเบอร์เกอร์5บ.",
+        "unit": "เเพ็ค",
+        "qty": 4,
+        "unit_price": 50.77,
+        "total": 203.08
+      },
+      {
+        "name": "โก๋แก่ลิสงรสพริก5บ.",
+        "unit": "เเพ็ค",
+        "qty": 4,
+        "unit_price": 48.75,
+        "total": 195.0
+      },
+      {
+        "name": "กิ๊ฟดำ5บ.",
+        "unit": "ชิ้น",
+        "qty": 3,
+        "unit_price": 52.27,
+        "total": 156.81
+      },
+      {
+        "name": "แก้ว22ออนซ์",
+        "unit": "เเพ็ค",
+        "qty": 1,
+        "unit_price": 41.08,
+        "total": 41.08
+      },
+      {
+        "name": "ขนมปังยืด25บ.",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 136.12,
+        "total": 544.48
+      }
+    ],
+    "totals": {
+      "subtotal": 2179.67,
+      "discount": 0.0,
+      "taxable_amount": 2179.67,
+      "vat_rate": 0.07,
+      "vat_amount": 142.6,
+      "grand_total": 2179.67,
+      "payment_received": 2179.67,
+      "change_due": 0.0
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_023.png",
+    "store_name": "ดอนเมืองซัพพลาย",
+    "branch": "สาขาภูเก็ต",
+    "address": "99 หมู่บ้านริมทะเล ต.หัวหิน อ.หัวหิน จ.ประจวบฯ",
+    "cashier": "Nicha",
+    "issued_at": "2025-07-31T15:10:05.393474",
+    "invoice_no": "EV250731-6158",
+    "payment_method": "บัตรเครดิต",
+    "items": [
+      {
+        "name": "กุ้งเต้นลัง(10บ.)",
+        "unit": "ลัง",
+        "qty": 3,
+        "unit_price": 491.6,
+        "total": 1474.8
+      },
+      {
+        "name": "กล่องสุ่ม12บ.(12ชิ้น)",
+        "unit": "แผง",
+        "qty": 1,
+        "unit_price": 113.68,
+        "total": 113.68
+      },
+      {
+        "name": "กระเป๋าตังค์20บ.(12ชิ้น)",
+        "unit": "แผง",
+        "qty": 1,
+        "unit_price": 193.13,
+        "total": 193.13
+      },
+      {
+        "name": "SB ซองใส5บ.",
+        "unit": "แพ็ค",
+        "qty": 1,
+        "unit_price": 50.9,
+        "total": 50.9
+      }
+    ],
+    "totals": {
+      "subtotal": 1832.51,
+      "discount": 10.0,
+      "taxable_amount": 1822.51,
+      "vat_rate": 0.07,
+      "vat_amount": 119.23,
+      "grand_total": 1822.51,
+      "payment_received": 1822.51,
+      "change_due": 0.0
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_024.png",
+    "store_name": "เชียงใหม่มินิมาร์ท",
+    "branch": "สาขาขอนแก่น",
+    "address": "459 ม.5 ต.คลองหนึ่ง อ.คลองหลวง จ.ปทุมธานี",
+    "cashier": "Nam",
+    "issued_at": "2025-08-08T07:10:05.393520",
+    "invoice_no": "EV250808-7330",
+    "payment_method": "เงินสด",
+    "items": [
+      {
+        "name": "ข้อมือยิงเหรียญ20บ.",
+        "unit": "แผง",
+        "qty": 5,
+        "unit_price": 91.45,
+        "total": 457.25
+      },
+      {
+        "name": "เกมส์กด50บ.",
+        "unit": "แผง",
+        "qty": 5,
+        "unit_price": 285.19,
+        "total": 1425.95
+      },
+      {
+        "name": "กระชายดำผสมโสมลัง",
+        "unit": "ชิ้น",
+        "qty": 4,
+        "unit_price": 1070.71,
+        "total": 4282.84
+      },
+      {
+        "name": "กระดาษม้วนเซลล็อกซ์",
+        "unit": "เเพ็ค",
+        "qty": 5,
+        "unit_price": 84.81,
+        "total": 424.05
+      },
+      {
+        "name": "แก้อักเสบ12แผง",
+        "unit": "ชิ้น",
+        "qty": 4,
+        "unit_price": 331.13,
+        "total": 1324.52
+      },
+      {
+        "name": "เกมส์โยกสล็อต5บ.",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 47.18,
+        "total": 141.54
+      },
+      {
+        "name": "เกมส์ทุบน้ำแข็ง28บ.",
+        "unit": "แผง",
+        "qty": 5,
+        "unit_price": 142.89,
+        "total": 714.45
+      },
+      {
+        "name": "กาโตะเมลอน",
+        "unit": "แพ็ค",
+        "qty": 5,
+        "unit_price": 52.0,
+        "total": 260.0
+      },
+      {
+        "name": "ขนมขาไก่รสหม่าล่า20บ.",
+        "unit": "เเพ็ค",
+        "qty": 1,
+        "unit_price": 91.04,
+        "total": 91.04
+      }
+    ],
+    "totals": {
+      "subtotal": 9121.64,
+      "discount": 11.59,
+      "taxable_amount": 9110.05,
+      "vat_rate": 0.0,
+      "vat_amount": 0.0,
+      "grand_total": 9110.05,
+      "payment_received": 9139.57,
+      "change_due": 29.52
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_025.png",
+    "store_name": "บางกอกออร์แกนิก",
+    "branch": "สาขาเชียงใหม่",
+    "address": "123 ถนนสุขุมวิท เขตวัฒนา กรุงเทพฯ 10110",
+    "cashier": "Apin",
+    "issued_at": "2025-09-14T09:10:05.393587",
+    "invoice_no": "EV250914-6607",
+    "payment_method": "โอนผ่านโมบายแบงก์",
+    "items": [
+      {
+        "name": "กระชายดำผสมโสม",
+        "unit": "เเพ็ค",
+        "qty": 4,
+        "unit_price": 182.02,
+        "total": 728.08
+      },
+      {
+        "name": "แก้วลาย32ออนซ์ไม่ฝา",
+        "unit": "ชิ้น",
+        "qty": 2,
+        "unit_price": 82.58,
+        "total": 165.16
+      },
+      {
+        "name": "กรีนนี่รสนมเย็น",
+        "unit": "เเพ็ค",
+        "qty": 2,
+        "unit_price": 43.31,
+        "total": 86.62
+      },
+      {
+        "name": "กาโตะสตรอเบอร์รี่",
+        "unit": "เเพ็ค",
+        "qty": 1,
+        "unit_price": 49.31,
+        "total": 49.31
+      },
+      {
+        "name": "กรีนเมทกระป๋องลิ้นจี่(24กป)",
+        "unit": "ลัง",
+        "qty": 5,
+        "unit_price": 303.01,
+        "total": 1515.05
+      },
+      {
+        "name": "กีต้าร์20บ.",
+        "unit": "แผง",
+        "qty": 2,
+        "unit_price": 92.36,
+        "total": 184.72
+      },
+      {
+        "name": "ขวดหมี30ชิ้น",
+        "unit": "เเพ็ค",
+        "qty": 3,
+        "unit_price": 96.0,
+        "total": 288.0
+      },
+      {
+        "name": "กระเป๋ากระดาษ20ชิ้น",
+        "unit": "ชิ้น",
+        "qty": 4,
+        "unit_price": 84.05,
+        "total": 336.2
+      },
+      {
+        "name": "กรีนนี่รสกล้วยหอม",
+        "unit": "เเพ็ค",
+        "qty": 1,
+        "unit_price": 48.06,
+        "total": 48.06
+      },
+      {
+        "name": "ไก่บีบ25บ.",
+        "unit": "แผง",
+        "qty": 1,
+        "unit_price": 113.51,
+        "total": 113.51
+      }
+    ],
+    "totals": {
+      "subtotal": 3514.71,
+      "discount": 0.0,
+      "taxable_amount": 3514.71,
+      "vat_rate": 0.0,
+      "vat_amount": 0.0,
+      "grand_total": 3514.71,
+      "payment_received": 3514.71,
+      "change_due": 0.0
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_026.png",
+    "store_name": "สุขใจซูเปอร์",
+    "branch": "สาขาขอนแก่น",
+    "address": "78/4 ถ.เยาวราช อ.เมือง จ.ภูเก็ต",
+    "cashier": "Nam",
+    "issued_at": "2025-08-04T20:10:05.393659",
+    "invoice_no": "EV250804-4599",
+    "payment_method": "เงินสด",
+    "items": [
+      {
+        "name": "กุ๋งกิ๋งทำฟาร์ม50บ.(4ชิ้น)",
+        "unit": "แผง",
+        "qty": 5,
+        "unit_price": 176.05,
+        "total": 880.25
+      },
+      {
+        "name": "กระดาษสก็อตป๊อปอัพ15บ.",
+        "unit": "เเพ็ค",
+        "qty": 1,
+        "unit_price": 301.74,
+        "total": 301.74
+      },
+      {
+        "name": "FFชอตรสขนมขาไก่5บ.",
+        "unit": "เเพ็ค",
+        "qty": 3,
+        "unit_price": 54.99,
+        "total": 164.97
+      },
+      {
+        "name": "กระเป๋าฝึกอาชีพ50บ.(3ชิ้น)",
+        "unit": "แผง",
+        "qty": 2,
+        "unit_price": 135.52,
+        "total": 271.04
+      },
+      {
+        "name": "กาแฟโกปืโก้ขวด15บ.ลัง",
+        "unit": "ลัง",
+        "qty": 1,
+        "unit_price": 278.23,
+        "total": 278.23
+      },
+      {
+        "name": "กระเทียม",
+        "unit": "แผง",
+        "qty": 2,
+        "unit_price": 53.54,
+        "total": 107.08
+      },
+      {
+        "name": "เกร็ดหิมะ5บ.",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 48.1,
+        "total": 192.4
+      },
+      {
+        "name": "โก๋ปลา",
+        "unit": "ชิ้น",
+        "qty": 3,
+        "unit_price": 4.02,
+        "total": 12.06
+      },
+      {
+        "name": "ok thin biscuit สีส้ม",
+        "unit": "เเพ็ค",
+        "qty": 3,
+        "unit_price": 51.35,
+        "total": 154.05
+      },
+      {
+        "name": "กระดานเขียนลบ12บ.",
+        "unit": "แผง",
+        "qty": 1,
+        "unit_price": 123.91,
+        "total": 123.91
+      }
+    ],
+    "totals": {
+      "subtotal": 2485.73,
+      "discount": 10.0,
+      "taxable_amount": 2475.73,
+      "vat_rate": 0.07,
+      "vat_amount": 161.96,
+      "grand_total": 2475.73,
+      "payment_received": 2506.41,
+      "change_due": 30.68
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_027.png",
+    "store_name": "ฟู้ดดี้สโตร์",
+    "branch": "สาขาลาดพร้าว",
+    "address": "99 หมู่บ้านริมทะเล ต.หัวหิน อ.หัวหิน จ.ประจวบฯ",
+    "cashier": "Nicha",
+    "issued_at": "2025-10-21T18:10:05.393722",
+    "invoice_no": "EV251021-6942",
+    "payment_method": "บัตรเครดิต",
+    "items": [
+      {
+        "name": "ขนมปังเอ็มดีไส้ครีม",
+        "unit": "เเพ็ค",
+        "qty": 1,
+        "unit_price": 50.94,
+        "total": 50.94
+      },
+      {
+        "name": "เเบรนด์ซุปไก่เล็ก15ขวด",
+        "unit": "กล่อง",
+        "qty": 3,
+        "unit_price": 467.68,
+        "total": 1403.04
+      },
+      {
+        "name": "เกมส์กด50บ.",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 269.22,
+        "total": 1076.88
+      },
+      {
+        "name": "ก๊อบกอบสาหร่าย20บ.",
+        "unit": "แพ็ค",
+        "qty": 2,
+        "unit_price": 54.71,
+        "total": 109.42
+      },
+      {
+        "name": "การ์ดจับคู่45บ.",
+        "unit": "แผง",
+        "qty": 2,
+        "unit_price": 250.14,
+        "total": 500.28
+      }
+    ],
+    "totals": {
+      "subtotal": 3140.56,
+      "discount": 5.0,
+      "taxable_amount": 3135.56,
+      "vat_rate": 0.07,
+      "vat_amount": 205.13,
+      "grand_total": 3135.56,
+      "payment_received": 3135.56,
+      "change_due": 0.0
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_028.png",
+    "store_name": "ภูเก็ตเดลี่",
+    "branch": "สาขาลาดพร้าว",
+    "address": "459 ม.5 ต.คลองหนึ่ง อ.คลองหลวง จ.ปทุมธานี",
+    "cashier": "Nicha",
+    "issued_at": "2025-10-26T04:10:05.393755",
+    "invoice_no": "EV251026-2998",
+    "payment_method": "เงินสด",
+    "items": [
+      {
+        "name": "กัมมี่บริค5บ.",
+        "unit": "เเพ็ค",
+        "qty": 1,
+        "unit_price": 50.98,
+        "total": 50.98
+      },
+      {
+        "name": "กัมมี่โรลสตรอเบอร์รี่",
+        "unit": "เเพ็ค",
+        "qty": 2,
+        "unit_price": 49.29,
+        "total": 98.58
+      },
+      {
+        "name": "โก๋แก่รสไทยทรงเครื่อง20บ.",
+        "unit": "เเพ็ค",
+        "qty": 3,
+        "unit_price": 98.8,
+        "total": 296.4
+      },
+      {
+        "name": "ไก่ย่างรสข้าวมันไก่5บ.",
+        "unit": "เเพ็ค",
+        "qty": 4,
+        "unit_price": 51.89,
+        "total": 207.56
+      },
+      {
+        "name": "กระเป๋าระบายสี15บ.",
+        "unit": "แผง",
+        "qty": 2,
+        "unit_price": 71.79,
+        "total": 143.58
+      },
+      {
+        "name": "กระเป๋าตังค์25บ.",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 116.06,
+        "total": 348.18
+      }
+    ],
+    "totals": {
+      "subtotal": 1145.28,
+      "discount": 0.0,
+      "taxable_amount": 1145.28,
+      "vat_rate": 0.07,
+      "vat_amount": 74.92,
+      "grand_total": 1145.28,
+      "payment_received": 1183.96,
+      "change_due": 38.68
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_029.png",
+    "store_name": "ภูเก็ตเดลี่",
+    "branch": "สาขาบางแค",
+    "address": "78/4 ถ.เยาวราช อ.เมือง จ.ภูเก็ต",
+    "cashier": "Somchai",
+    "issued_at": "2025-10-30T21:10:05.393785",
+    "invoice_no": "EV251030-6429",
+    "payment_method": "เงินสด",
+    "items": [
+      {
+        "name": "เกมส์บันไดงู5บ.",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 51.04,
+        "total": 204.16
+      },
+      {
+        "name": "กัมมี่มาการอง5บ.",
+        "unit": "เเพ็ค",
+        "qty": 2,
+        "unit_price": 51.24,
+        "total": 102.48
+      },
+      {
+        "name": "ข้าวเกรียบกุ้งมโนหรา5บ.",
+        "unit": "แพ็ค",
+        "qty": 2,
+        "unit_price": 49.81,
+        "total": 99.62
+      },
+      {
+        "name": "กระดาษตราไก่",
+        "unit": "ชิ้น",
+        "qty": 4,
+        "unit_price": 18.43,
+        "total": 73.72
+      },
+      {
+        "name": "กรีนเมทกระป๋อง24กป.",
+        "unit": "ลัง",
+        "qty": 5,
+        "unit_price": 261.68,
+        "total": 1308.4
+      },
+      {
+        "name": "โกํแก่ถั่วลิสงแผ่นทอด5บ.",
+        "unit": "เเพ็ค",
+        "qty": 5,
+        "unit_price": 46.25,
+        "total": 231.25
+      },
+      {
+        "name": "ไก่ย่างเเดง20บ.",
+        "unit": "แพ็ค",
+        "qty": 4,
+        "unit_price": 51.45,
+        "total": 205.8
+      },
+      {
+        "name": "กระเป๋าเจ้าหญิง50บ.",
+        "unit": "แผง",
+        "qty": 1,
+        "unit_price": 263.83,
+        "total": 263.83
+      },
+      {
+        "name": "กรีนนัท รสปลาหมึก 20บ.",
+        "unit": "แพ็ค",
+        "qty": 1,
+        "unit_price": 45.49,
+        "total": 45.49
+      },
+      {
+        "name": "เกลือแร่สตรองกล่อง",
+        "unit": "กล่อง",
+        "qty": 3,
+        "unit_price": 73.83,
+        "total": 221.49
+      }
+    ],
+    "totals": {
+      "subtotal": 2756.24,
+      "discount": 10.0,
+      "taxable_amount": 2746.24,
+      "vat_rate": 0.07,
+      "vat_amount": 179.66,
+      "grand_total": 2746.24,
+      "payment_received": 2772.58,
+      "change_due": 26.34
+    }
+  },
+  {
+    "file": "dataset_receipt_v2_030.png",
+    "store_name": "สุขใจซูเปอร์",
+    "branch": "สาขานครปฐม",
+    "address": "99 หมู่บ้านริมทะเล ต.หัวหิน อ.หัวหิน จ.ประจวบฯ",
+    "cashier": "Somchai",
+    "issued_at": "2025-10-19T20:10:05.393821",
+    "invoice_no": "EV251019-1927",
+    "payment_method": "โอนผ่านโมบายแบงก์",
+    "items": [
+      {
+        "name": "กล่องสุ่ม18บ.",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 191.17,
+        "total": 764.68
+      },
+      {
+        "name": "การ์ดการ์ตูนปักเพชร25บ.(6ชิ้น)",
+        "unit": "แผง",
+        "qty": 5,
+        "unit_price": 129.42,
+        "total": 647.1
+      },
+      {
+        "name": "เกมส์หาคน25บ.",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 128.36,
+        "total": 513.44
+      },
+      {
+        "name": "กุ้ง+ไม้เข็น25บ.",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 139.09,
+        "total": 417.27
+      },
+      {
+        "name": "กลอง30บ.",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 145.7,
+        "total": 582.8
+      },
+      {
+        "name": "กุ๋งกิ๋งทำฟาร์ม50บ.(4ชิ้น)",
+        "unit": "แผง",
+        "qty": 4,
+        "unit_price": 178.2,
+        "total": 712.8
+      },
+      {
+        "name": "SMSเขียว+แดง",
+        "unit": "เเพ็ค",
+        "qty": 4,
+        "unit_price": 640.55,
+        "total": 2562.2
+      },
+      {
+        "name": "กระดานเขียน25บ.",
+        "unit": "แผง",
+        "qty": 3,
+        "unit_price": 143.23,
+        "total": 429.69
+      },
+      {
+        "name": "กล้วย/เผือกฉาบ",
+        "unit": "ชิ้น",
+        "qty": 2,
+        "unit_price": 11.02,
+        "total": 22.04
+      }
+    ],
+    "totals": {
+      "subtotal": 6652.02,
+      "discount": 9.99,
+      "taxable_amount": 6642.030000000001,
+      "vat_rate": 0.07,
+      "vat_amount": 434.53,
+      "grand_total": 6642.03,
+      "payment_received": 6642.03,
+      "change_due": 0.0
+    }
+  }
+]

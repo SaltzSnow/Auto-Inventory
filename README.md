@@ -2,7 +2,7 @@
 
 ระบบจัดการคลังสินค้าอัจฉริยะที่ใช้ AI อ่านใบเสร็จรับเงินและอัปเดตสต็อกสินค้าโดยอัตโนมัติ พัฒนาเพื่อช่วยธุรกิจขนาดเล็กถึงกลาง (SMEs) จัดการคลังสินค้าอย่างมีประสิทธิภาพ
 
-> **Powered by Gemini, Claude, and Vector Search**
+> **Powered by Gemini and Vector Search**
 
 [![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat&logo=fastapi)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)](https://reactjs.org/)
@@ -76,7 +76,7 @@
 │  ┌──────┴────────────────┴────────────────┴────────────────┐   │
 │  │                    Services Layer                        │   │
 │  │  • product_service  • openrouter_service                 │   │
-│  │  • transaction_service  • cache_service                  │   │
+│  │  • transaction_service                                   │   │
 │  └──────────────────────────────┬───────────────────────────┘   │
 └─────────────────────────────────┼───────────────────────────────┘
                                   │
@@ -87,12 +87,12 @@
    │+ PGVector│            │   (Cache)   │          │   Worker    │
    └──────────┘            └─────────────┘          └──────┬──────┘
         │                                                   │
-        │                                            ┌──────▼──────┐
-        │                                            │  AI Services│
-        │                                            │  • Gemini   │
-        │                                            │  • Claude   │
-        └────────────────────────────────────────────│  • Embeddings│
-                                                     └─────────────┘
+        │                                            ┌──────▼───────────────────┐
+        │                                            │  AI Services             │
+        │                                            │  • Gemini 2.5 Flash Lite │
+        │                                            │  • Gemini Embedding 001  │
+        └────────────────────────────────────────────│  • OpenRouter Gateway    │
+                                                     └──────────────────────────┘
 ```
 
 ---
@@ -106,10 +106,10 @@ graph TD
     A[User uploads receipt] --> B[FastAPI validates file]
     B --> C[Create Receipt record]
     C --> D[Trigger Celery task]
-    D --> E[Gemini Vision OCR]
-    E --> F[Generate embeddings]
-    F --> G[Vector similarity search]
-    G --> H[Claude validation]
+    D --> E[Gemini 2.5 Flash Lite (Vision OCR)]
+    E --> F[Generate embeddings (Gemini Embedding 001)]
+    F --> G[Vector similarity search (pgvector)]
+    G --> H[Gemini 2.5 Flash Lite (Validation & unit conversion)]
     H --> I[Return results]
     I --> J[User confirms]
     J --> K[Update inventory]
@@ -129,15 +129,15 @@ User uploads image → FastAPI validates → Save to storage → Create Receipt 
 
 **Step 1: OCR Extraction (33%)**
 ```python
-# Gemini 2.0 Flash Vision API
+# Gemini 2.5 Flash Lite (Vision)
 extracted_items = extract_items_from_image(image_path)
-# Returns: [{"name": "ไข่ต้ม", "quantity": 1, "original_text": "ไข่ต้ม"}]
+# Returns: [{"name": "ไข่ต้ม", "quantity": "1 ชิ้น", "original_text": "ไข่ต้ม x1"}]
 ```
 
 **Step 2: Product Matching (66%)**
 ```python
-# Generate embedding with Gemini text-embedding-004
-embedding = generate_embedding("ไข่ต้ม")  # 1536 dimensions (MRL)
+# Generate embedding with google/gemini-embedding-001
+embedding = generate_embedding("ไข่ต้ม")  # 1536 dimensions
 
 # Vector similarity search (PostgreSQL + PGVector)
 SELECT id, name, unit,
@@ -151,8 +151,8 @@ LIMIT 1
 
 **Step 3: Validation & Unit Conversion (100%)**
 ```python
-# Claude 3.5 Sonnet validates and converts units
-validated_item = validate_and_convert(matched_product, original_text)
+# Gemini 2.5 Flash Lite validates and converts units (with quantity hint)
+validated_item = validate_and_convert(matched_product, original_text, raw_quantity_text)
 # Returns: ValidatedItem(product_id=UUID, quantity=1, unit="ชิ้น", confidence=0.95)
 ```
 
@@ -203,10 +203,9 @@ Update receipt status → Invalidate React Query cache → Refresh UI
 ### AI Services
 | Service | Model | Purpose |
 |---------|-------|---------|
-| Gemini | 2.0 Flash | Vision OCR |
-| Gemini | text-embedding-004 | Embeddings (MRL) |
-| Claude | 3.5 Sonnet | Validation & conversion |
-| OpenRouter | - | API gateway |
+| Gemini | 2.5 Flash Lite | Vision OCR & validation |
+| Gemini | gemini-embedding-001 | Text embeddings (1536-dim) |
+| OpenRouter | - | AI API gateway |
 
 ---
 
@@ -640,7 +639,6 @@ ai-inventory/
 │   │   ├── product_service.py
 │   │   ├── openrouter_service.py
 │   │   ├── transaction_service.py
-│   │   ├── cache_service.py
 │   │   └── storage_service.py
 │   ├── models/                # SQLAlchemy models
 │   │   ├── product.py
@@ -655,7 +653,9 @@ ai-inventory/
 │   ├── middleware/            # FastAPI middleware
 │   │   └── security.py
 │   ├── utils/                 # Utilities
-│   │   └── file_validation.py
+│   │   ├── cache.py
+│   │   ├── file_validation.py
+│   │   └── text_normalization.py
 │   ├── exceptions.py          # Custom exceptions
 │   ├── alembic/               # Database migrations
 │   ├── requirements.txt

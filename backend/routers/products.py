@@ -21,7 +21,7 @@ router = APIRouter(prefix="/api/products", tags=["products"])
 async def get_products(
     request: Request,
     skip: int = Query(0, ge=0, description="Number of records to skip"),
-    limit: int = Query(100, ge=1, le=1000, description="Maximum number of records to return"),
+    limit: int = Query(10000, ge=1, le=10000, description="Maximum number of records to return"),
     db: AsyncSession = Depends(get_db)
 ):
     """
@@ -45,7 +45,7 @@ async def search_products(
     request: Request,
     q: str = Query(..., min_length=1, description="Search query"),
     skip: int = Query(0, ge=0, description="Number of records to skip"),
-    limit: int = Query(100, ge=1, le=1000, description="Maximum number of records to return"),
+    limit: int = Query(10000, ge=1, le=10000, description="Maximum number of records to return"),
     db: AsyncSession = Depends(get_db)
 ):
     """
@@ -194,3 +194,53 @@ async def delete_product(
         logger.error(f"Error deleting product {product_id}: {error_msg}")
         await db.rollback()
         raise HTTPException(status_code=500, detail=f"เกิดข้อผิดพลาดในการลบสินค้า\n\n{error_msg}")
+
+
+@router.post("/regenerate-embeddings", status_code=200)
+@limiter.limit("120/minute")
+async def regenerate_embeddings(
+    request: Request,
+    batch_size: int = Query(100, ge=1, le=500, description="จำนวนสินค้าที่จะประมวลผลต่อครั้ง"),
+    offset: int = Query(0, ge=0, description="ลำดับเริ่มต้นของสินค้าที่จะประมวลผล"),
+    skip_cache: bool = Query(False, description="ตั้งค่าเป็น true เพื่อไม่ใช้ cache (เช่น เมื่อเปลี่ยน embedding model)"),
+    db: AsyncSession = Depends(get_db)
+):
+    """
+    สร้าง embeddings ใหม่สำหรับสินค้าทั้งหมด
+    
+    ใช้เมื่อ:
+    - อัปเดตกฎการ normalize ข้อความภาษาไทย
+    - เปลี่ยน embedding model
+    - สินค้าถูกสร้างโดยไม่มี embedding
+    
+    Rate limit: 5 ครั้งต่อชั่วโมง
+    """
+    try:
+        result = await product_service.regenerate_all_embeddings(
+            db,
+            offset=offset,
+            batch_size=batch_size,
+            skip_cache=skip_cache
+        )
+        await db.commit()
+        
+        return {
+            "message": "สร้าง embeddings ใหม่เสร็จสิ้น",
+            "total": result["total"],
+            "processed": result["processed"],
+            "success": result["success"],
+            "failure": result["failure"],
+            "failures": result["failures"],
+            "offset": result["offset"],
+            "batch_size": result["batch_size"],
+            "next_offset": result["next_offset"],
+            "has_more": result["has_more"]
+        }
+    except Exception as e:
+        error_msg = str(e)
+        logger.error(f"Error regenerating embeddings: {error_msg}")
+        await db.rollback()
+        raise HTTPException(
+            status_code=500,
+            detail=f"เกิดข้อผิดพลาดในการสร้าง embeddings ใหม่\n\n{error_msg}"
+        )

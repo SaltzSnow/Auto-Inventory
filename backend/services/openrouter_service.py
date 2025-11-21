@@ -5,6 +5,7 @@ from typing import List
 import logging
 import base64
 import json
+import re
 from pathlib import Path
 from pydantic import ValidationError
 
@@ -12,8 +13,35 @@ from schemas.receipt import ExtractedItem, MatchedProduct, ValidatedItem
 from utils.retry import retry_external_service
 from exceptions import ExternalServiceError
 from utils.cache import cache_service
-
+from utils.text_normalization import normalize_thai_text
 logger = logging.getLogger(__name__)
+
+
+_QUANTITY_KEYWORDS = (
+    "ชิ้น",
+    "แพ็ค",
+    "แพ็ก",
+    "แพค",
+    "แผง",
+    "กล่อง",
+    "ลัง",
+    "ชุด",
+    "ถุง",
+    "ขวด",
+    "กระป๋อง",
+    "ซอง",
+    "แพ๊ค",
+    "แพก",
+    "กป",
+    "บา",
+)
+
+_QUANTITY_REGEXES = [
+    re.compile(r"(\d+)\s*[xX×]\s*[\d\.]"),
+    re.compile(r"(\d+)\s*(?:%s)" % "|".join(_QUANTITY_KEYWORDS)),
+    re.compile(r"\bqty[:\s]*(\d+)\b", flags=re.IGNORECASE),
+    re.compile(r"^\s*(\d+)\s*$"),
+]
 
 
 class OpenRouterService:
@@ -24,16 +52,12 @@ class OpenRouterService:
         if not self.api_key:
             logger.warning("OPENROUTER_API_KEY not set in environment variables")
         
-        self.gemini_api_key = os.getenv("GEMINI_API_KEY")
-        if not self.gemini_api_key:
-            logger.warning("GEMINI_API_KEY not set in environment variables")
-        
         self.base_url = "https://openrouter.ai/api/v1"
-        self.gemini_base_url = "https://generativelanguage.googleapis.com/v1beta"
-        self.embedding_model = "models/gemini-embedding-001"
-        self.vision_model = "google/gemini-2.5-flash"
-        self.validation_model = "google/gemini-2.5-flash"
-        self.timeout = 30.0
+        self.embedding_model = "google/gemini-embedding-001"
+        self.vision_model = "google/gemini-2.5-flash-lite"
+        self.validation_model = "google/gemini-2.5-flash-lite"
+        self.timeout = float(os.getenv("OPENROUTER_TIMEOUT", "30"))
+        self.embedding_timeout = float(os.getenv("OPENROUTER_EMBEDDING_TIMEOUT", "60"))
     
     @retry_external_service(max_attempts=3)
     async def extract_items_from_image(self, image_path: str) -> tuple[List[ExtractedItem], str]:
@@ -84,7 +108,7 @@ class OpenRouterService:
 สำคัญ: ให้ตอบเป็น JSON array เท่านั้น ไม่ต้องมีคำอธิบายเพิ่มเติม"""
         
         try:
-            async with httpx.AsyncClient(timeout=self.timeout) as client:
+            async with httpx.AsyncClient(timeout=self.embedding_timeout) as client:
                 response = await client.post(
                     f"{self.base_url}/chat/completions",
                     headers={
@@ -216,11 +240,44 @@ class OpenRouterService:
                 message=f"เกิดข้อผิดพลาดในการประมวลผลใบเสร็จ\n\nรายละเอียด: {str(e)}",
                 details={"error": str(e), "error_type": type(e).__name__}
             )
-    
+
+    def _extract_quantity_from_text(self, text: str | None) -> int | None:
+        if not text:
+            return None
+        sanitized = (
+            str(text)
+            .replace(",", " ")
+            .replace("×", "x")
+            .replace("แพ๊ค", "แพ็ค")
+            .strip()
+        )
+        for regex in _QUANTITY_REGEXES:
+            match = regex.search(sanitized)
+            if match:
+                try:
+                    value = int(match.group(1))
+                except ValueError:
+                    continue
+                if value > 0:
+                    return value
+        return None
+
+    def _parse_quantity_hint(
+        self,
+        raw_quantity_text: str | None,
+        original_text: str | None,
+    ) -> int | None:
+        for text in (raw_quantity_text, original_text):
+            qty = self._extract_quantity_from_text(text)
+            if qty is not None and qty > 0:
+                return qty
+        return None
+
     @retry_external_service(max_attempts=3)
-    async def generate_embedding(self, text: str) -> List[float]:
+    async def generate_embedding(self, text: str, bypass_cache: bool = False) -> List[float]:
         """
-        Generate vector embedding for text using Gemini API directly.
+        Generate vector embeddings for text using OpenRouter's google/gemini-embedding-001 model.
+        Optionally bypasses cache lookups to force regeneration with a new model.
         Uses Redis cache to avoid regenerating embeddings for the same text.
         
         Args:
@@ -232,35 +289,32 @@ class OpenRouterService:
         Raises:
             Exception: If API call fails
         """
-        if not self.gemini_api_key:
-            raise ValueError("GEMINI_API_KEY not configured")
+        if not self.api_key:
+            raise ValueError("OPENROUTER_API_KEY not configured")
         
         if not text or not text.strip():
             raise ValueError("Text cannot be empty")
         
-        normalized_text = text.strip()
-        
-        # Check cache first
-        cached_embedding = await cache_service.get_embedding(normalized_text)
-        if cached_embedding:
-            return cached_embedding
+        # Normalize Thai text for better matching
+        normalized_text = normalize_thai_text(text)
+
+        # Check cache first (unless bypassing)
+        if not bypass_cache:
+            cached_embedding = await cache_service.get_embedding(normalized_text)
+            if cached_embedding:
+                return cached_embedding
         
         try:
             async with httpx.AsyncClient(timeout=self.timeout) as client:
                 response = await client.post(
-                    f"{self.gemini_base_url}/{self.embedding_model}:embedContent",
+                    f"{self.base_url}/embeddings",
                     headers={
-                        "x-goog-api-key": self.gemini_api_key,
+                        "Authorization": f"Bearer {self.api_key}",
                         "Content-Type": "application/json"
                     },
                     json={
                         "model": self.embedding_model,
-                        "content": {
-                            "parts": [{
-                                "text": normalized_text
-                            }]
-                        },
-                        "output_dimensionality": 1536
+                        "input": normalized_text
                     }
                 )
                 
@@ -274,22 +328,24 @@ class OpenRouterService:
                 except json.JSONDecodeError as json_err:
                     logger.error(f"JSON decode error. Response status: {response.status_code}, Response text: {response_text[:500]}")
                     raise ExternalServiceError(
-                        message=f"ไม่สามารถแปลง response จาก Gemini API ได้\n\nรายละเอียด: {str(json_err)}\n\nResponse ที่ได้: {response_text[:200]}",
+                        message=f"ไม่สามารถแปลง response จาก OpenRouter ได้\n\nรายละเอียด: {str(json_err)}\n\nResponse ที่ได้: {response_text[:200]}",
                         details={"error": str(json_err), "response_text": response_text, "status_code": response.status_code}
                     )
                 
-                if "embedding" not in result or "values" not in result["embedding"]:
+                if "data" not in result or len(result["data"]) == 0:
                     logger.error(f"Invalid response structure: {result}")
-                    raise Exception(f"Invalid response from Gemini API: {result}")
+                    raise Exception(f"Invalid response from OpenRouter embeddings API: {result}")
                 
-                embedding = result["embedding"]["values"]
+                embedding = result["data"][0].get("embedding")
+                if embedding is None:
+                    logger.error(f"Embedding not found in response: {result}")
+                    raise Exception("Embedding not found in OpenRouter response")
                 
-                # With output_dimensionality=1536, we should always get exactly 1536 dimensions
-                # This is a safety check in case something goes wrong
+                # Gemini embeddings default to 3072 dimensions; we truncate/pad to fit the 1536-d schema
                 if len(embedding) != 1536:
                     logger.warning(
                         f"Unexpected embedding dimension: {len(embedding)} (expected 1536). "
-                        f"Adjusting to match database schema."
+                        "Adjusting to match database schema."
                     )
                     if len(embedding) > 1536:
                         # Truncate if too large (shouldn't happen with output_dimensionality)
@@ -298,9 +354,12 @@ class OpenRouterService:
                         # Pad with zeros if too small (shouldn't happen with output_dimensionality)
                         embedding = embedding + [0.0] * (1536 - len(embedding))
                 
-                logger.info(f"Generated embedding for text: {normalized_text[:50]}... (dimension: {len(embedding)})")
+                logger.info(
+                    f"Generated embedding via OpenRouter for text: {normalized_text[:50]}... "
+                    f"(dimension: {len(embedding)})"
+                )
                 
-                # Cache the embedding for 7 days
+                # Cache the embedding for 7 days (always refresh to ensure latest model output)
                 await cache_service.set_embedding(normalized_text, embedding)
                 
                 return embedding
@@ -330,9 +389,10 @@ class OpenRouterService:
     
     @retry_external_service(max_attempts=3)
     async def validate_and_convert(
-        self, 
-        matched_item: MatchedProduct, 
-        original_text: str
+        self,
+        matched_item: MatchedProduct,
+        original_text: str,
+        raw_quantity_text: str | None = None,
     ) -> ValidatedItem:
         """
         Validate and convert item units using LLM.
@@ -345,6 +405,7 @@ class OpenRouterService:
         Args:
             matched_item: Product matched from inventory with similarity score
             original_text: Original text from receipt
+            raw_quantity_text: Quantity text returned by the extraction step (if available)
             
         Returns:
             ValidatedItem with confirmed product_id, quantity, unit, and confidence
@@ -352,6 +413,17 @@ class OpenRouterService:
         Raises:
             Exception: If API call fails or response cannot be parsed
         """
+
+        parsed_qty = self._parse_quantity_hint(raw_quantity_text, original_text)
+        if parsed_qty is not None:
+            return ValidatedItem(
+                product_id=matched_item.product_id,
+                product_name=matched_item.product_name,
+                quantity=parsed_qty,
+                unit=matched_item.unit,
+                confidence=0.92,
+                original_text=original_text,
+            )
         if not self.api_key:
             raise ValueError("OPENROUTER_API_KEY not configured")
         
@@ -375,7 +447,7 @@ class OpenRouterService:
 - "น้ำเปล่า 12 ขวด" → quantity: 12, unit: "ขวด"
 - "ขนมปัง 2 แพ็ค" → quantity: 2, unit: "แพ็ค"
 
-ถ้าไม่แน่ใจหรือข้อมูลไม่ชัดเจน ให้ confidence ต่ำกว่า 0.8"""
+ถ้าไม่แน่ใจหรือข้อมูลไม่ชัดเจน ให้ confidence ต่ำกว่า 0.7"""
 
         user_prompt = f"""สินค้าในคลัง: "{matched_item.product_name}" (หน่วย: {matched_item.unit})
 ข้อความจากใบเสร็จ: "{original_text}"
@@ -454,7 +526,7 @@ class OpenRouterService:
                     )
                 
                 # Log warning if confidence is low
-                if validated_item.confidence < 0.8:
+                if validated_item.confidence < 0.7:
                     logger.warning(
                         f"Low confidence validation: {validated_item.confidence:.2f} "
                         f"for item '{original_text}' → '{validated_item.product_name}'"

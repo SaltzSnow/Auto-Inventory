@@ -5,6 +5,7 @@ import { useTaskStatus, TaskStatus } from '../hooks/useReceiptUpload';
 import { useConfirmation } from '../hooks/useConfirmation';
 import { ExtractedItemsList } from '../components/ExtractedItemsList';
 import { Toast } from '../components/Toast';
+import { API_BASE_URL } from '../services/api';
 
 interface ExtractedItem {
   product_id: string;
@@ -27,6 +28,20 @@ export const ConfirmationPage: React.FC = () => {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
   const [toastType, setToastType] = useState<'success' | 'error' | 'info'>('success');
+
+  const resolveImageUrl = (url: string): string => {
+    if (!url) return '';
+    if (/^https?:\/\//i.test(url)) {
+      return url;
+    }
+    try {
+      const base = API_BASE_URL.endsWith('/') ? API_BASE_URL : `${API_BASE_URL}/`;
+      return new URL(url, base).toString();
+    } catch (error) {
+      console.error('Failed to resolve image URL', error);
+      return url;
+    }
+  };
 
   useEffect(() => {
     if (taskStatus?.result?.items) {
@@ -180,7 +195,7 @@ export const ConfirmationPage: React.FC = () => {
             <h3 className="text-lg font-semibold text-gray-900 mb-4">ใบเสร็จ</h3>
             {receiptImageUrl ? (
               <img
-                src={receiptImageUrl}
+                src={resolveImageUrl(receiptImageUrl)}
                 alt="Receipt"
                 loading="lazy"
                 className="w-full h-auto rounded-lg border border-gray-200"

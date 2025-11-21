@@ -1,9 +1,12 @@
 import asyncio
 import os
+
+import pytest
 from sqlalchemy.ext.asyncio import create_async_engine
 
+@pytest.mark.asyncio
 async def test_connection():
-    database_url = os.getenv("DATABASE_URL")
+    database_url = os.getenv("DATABASE_URL") or "postgresql+asyncpg://postgres:postgres@localhost:5432/inventory"
     print(f"Testing connection to: {database_url}")
     
     engine = create_async_engine(database_url)

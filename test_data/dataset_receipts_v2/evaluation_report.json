@@ -1,0 +1,416 @@
+{
+  "receipts": 30,
+  "items_expected": 169,
+  "items_matched": 155,
+  "name_matches": 155,
+  "quantity_matches": 154,
+  "accuracy": 0.9171597633136095,
+  "name_accuracy": 0.9171597633136095,
+  "quantity_accuracy": 0.9112426035502958,
+  "run_label": "post-regenerate-2",
+  "timestamp": "2025-11-17T00:23:05.643741Z",
+  "results": [
+    {
+      "file": "dataset_receipt_v2_001.png",
+      "status": "error",
+      "error": "HTTP 500: {\"detail\":\"เกิดข้อผิดพลาดในการอัปโหลด: 'NoneType' object has no attribute 'send'\"}"
+    },
+    {
+      "file": "dataset_receipt_v2_002.png",
+      "status": "error",
+      "error": "HTTP 500: {\"detail\":\"เกิดข้อผิดพลาดในการประมวลผลทันที: ไม่สามารถสกัดข้อมูลจากใบเสร็จได้ (รหัสข้อผิดพลาด: 401)\\n\\nรายละเอียด: {\\\"error\\\":{\\\"message\\\":\\\"User not found.\\\",\\\"code\\\":401}}\"}"
+    },
+    {
+      "file": "dataset_receipt_v2_003.png",
+      "status": "error",
+      "error": "HTTP 500: {\"detail\":\"เกิดข้อผิดพลาดในการประมวลผลทันที: ไม่สามารถสกัดข้อมูลจากใบเสร็จได้ (รหัสข้อผิดพลาด: 401)\\n\\nรายละเอียด: {\\\"error\\\":{\\\"message\\\":\\\"User not found.\\\",\\\"code\\\":401}}\"}"
+    },
+    {
+      "file": "dataset_receipt_v2_004.png",
+      "status": "error",
+      "error": "HTTP 500: {\"detail\":\"เกิดข้อผิดพลาดในการประมวลผลทันที: ไม่สามารถสกัดข้อมูลจากใบเสร็จได้ (รหัสข้อผิดพลาด: 401)\\n\\nรายละเอียด: {\\\"error\\\":{\\\"message\\\":\\\"User not found.\\\",\\\"code\\\":401}}\"}"
+    },
+    {
+      "file": "dataset_receipt_v2_005.png",
+      "status": "error",
+      "error": "HTTP 500: {\"detail\":\"เกิดข้อผิดพลาดในการประมวลผลทันที: ไม่สามารถสกัดข้อมูลจากใบเสร็จได้ (รหัสข้อผิดพลาด: 401)\\n\\nรายละเอียด: {\\\"error\\\":{\\\"message\\\":\\\"User not found.\\\",\\\"code\\\":401}}\"}"
+    },
+    {
+      "file": "dataset_receipt_v2_006.png",
+      "status": "error",
+      "error": "HTTP 500: {\"detail\":\"เกิดข้อผิดพลาดในการประมวลผลทันที: ไม่สามารถสกัดข้อมูลจากใบเสร็จได้ (รหัสข้อผิดพลาด: 401)\\n\\nรายละเอียด: {\\\"error\\\":{\\\"message\\\":\\\"User not found.\\\",\\\"code\\\":401}}\"}"
+    },
+    {
+      "file": "dataset_receipt_v2_007.png",
+      "status": "error",
+      "error": "HTTP 500: {\"detail\":\"เกิดข้อผิดพลาดในการประมวลผลทันที: ไม่สามารถสกัดข้อมูลจากใบเสร็จได้ (รหัสข้อผิดพลาด: 401)\\n\\nรายละเอียด: {\\\"error\\\":{\\\"message\\\":\\\"User not found.\\\",\\\"code\\\":401}}\"}"
+    },
+    {
+      "file": "dataset_receipt_v2_008.png",
+      "status": "error",
+      "error": "HTTP 500: {\"detail\":\"เกิดข้อผิดพลาดในการประมวลผลทันที: ไม่สามารถสกัดข้อมูลจากใบเสร็จได้ (รหัสข้อผิดพลาด: 401)\\n\\nรายละเอียด: {\\\"error\\\":{\\\"message\\\":\\\"User not found.\\\",\\\"code\\\":401}}\"}"
+    },
+    {
+      "file": "dataset_receipt_v2_009.png",
+      "status": "error",
+      "error": "HTTP 500: {\"detail\":\"เกิดข้อผิดพลาดในการประมวลผลทันที: ไม่สามารถสกัดข้อมูลจากใบเสร็จได้ (รหัสข้อผิดพลาด: 401)\\n\\nรายละเอียด: {\\\"error\\\":{\\\"message\\\":\\\"User not found.\\\",\\\"code\\\":401}}\"}"
+    },
+    {
+      "file": "dataset_receipt_v2_010.png",
+      "receipt_id": "28d8728d-733a-4b77-a4c7-2e617b128350",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_010_fb793432-d4a9-422a-9508-af1edd6009c6.png",
+      "status": "partial",
+      "items_expected": 10,
+      "name_matches": 9,
+      "quantity_matches": 9,
+      "quantity_accuracy": 0.9,
+      "quantity_mismatches": [],
+      "missing_items": {
+        "ขนมทอดกรอบรสสาหร่าย20บ.": 2
+      },
+      "extra_items": {
+        "ขนมทอดกรอบรสบาร์บีคิว20บ.": 2
+      }
+    },
+    {
+      "file": "dataset_receipt_v2_011.png",
+      "receipt_id": "64548c52-0cd8-4faa-8fa3-16a51bd0c1ba",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_011_a9bd33d4-6fc1-46de-8f40-acf6bbff58bf.png",
+      "status": "partial",
+      "items_expected": 8,
+      "name_matches": 7,
+      "quantity_matches": 7,
+      "quantity_accuracy": 0.875,
+      "quantity_mismatches": [],
+      "missing_items": {
+        "เกมส์ทุบน้ำแข็ง15บ.(12ชิ้น)": 4
+      },
+      "extra_items": {
+        "เกมส์ทุบน้ำแข็ง28บ.": 4
+      }
+    },
+    {
+      "file": "dataset_receipt_v2_012.png",
+      "receipt_id": "e045d538-e9ce-4fbe-9b0f-a4ae9e18b19a",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_012_d04924fa-ad53-473d-b4df-daabfeb45e98.png",
+      "status": "partial",
+      "items_expected": 9,
+      "name_matches": 8,
+      "quantity_matches": 8,
+      "quantity_accuracy": 0.8888888888888888,
+      "quantity_mismatches": [],
+      "missing_items": {
+        "กรีนเมทกระป๋องลิ้นจี่(24กป)": 5
+      },
+      "extra_items": {
+        "กรีนเมทเฉาก๊วยกระป๋องลัง": 5
+      }
+    },
+    {
+      "file": "dataset_receipt_v2_013.png",
+      "receipt_id": "aede3bc1-91a8-411e-b2dc-afaafd9848c1",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_013_57ea1d5a-de5b-4e8f-a6c1-f1fac59748e7.png",
+      "status": "ok",
+      "items_expected": 9,
+      "name_matches": 9,
+      "quantity_matches": 9,
+      "quantity_accuracy": 1.0,
+      "quantity_mismatches": [],
+      "missing_items": {},
+      "extra_items": {}
+    },
+    {
+      "file": "dataset_receipt_v2_014.png",
+      "receipt_id": "97b50314-a4cd-4dad-b70c-08f9271d9f11",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_014_a4ca9ccb-3905-4a81-a96f-07ffdb477cf1.png",
+      "status": "partial",
+      "items_expected": 6,
+      "name_matches": 4,
+      "quantity_matches": 4,
+      "quantity_accuracy": 0.6666666666666666,
+      "quantity_mismatches": [],
+      "missing_items": {
+        "ขนมทอดกรอบรสข้าวโพด20บ.": 5,
+        "เกมส์บันไดงู5บ.": 3
+      },
+      "extra_items": {
+        "ข้าว": 5,
+        "เกมส์บันไดงูกล่อง15บ.": 3
+      }
+    },
+    {
+      "file": "dataset_receipt_v2_015.png",
+      "receipt_id": "36f9dcb0-dfa0-43df-abd0-d4a9a9557a1d",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_015_ac979bc1-126d-473b-87ce-5a85c4994129.png",
+      "status": "partial",
+      "items_expected": 6,
+      "name_matches": 4,
+      "quantity_matches": 4,
+      "quantity_accuracy": 0.6666666666666666,
+      "quantity_mismatches": [],
+      "missing_items": {
+        "กัมมี่เบอร์รี่โคล่าไลม์": 4,
+        "ไก่ย่างโกลด์20บ.": 3
+      },
+      "extra_items": {
+        "ไก่ย่างรสพริก20บ.": 3
+      }
+    },
+    {
+      "file": "dataset_receipt_v2_016.png",
+      "receipt_id": "3fed5b89-1149-4436-a757-cca4f7dd4bef",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_016_60d211c0-8153-421b-9965-51240de95ae5.png",
+      "status": "ok",
+      "items_expected": 8,
+      "name_matches": 8,
+      "quantity_matches": 8,
+      "quantity_accuracy": 1.0,
+      "quantity_mismatches": [],
+      "missing_items": {},
+      "extra_items": {}
+    },
+    {
+      "file": "dataset_receipt_v2_017.png",
+      "receipt_id": "9884003d-dc36-41fd-9718-e8d332b461ac",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_017_7cc8c1ec-5f94-403d-bdad-0568a7b51d32.png",
+      "status": "partial",
+      "items_expected": 9,
+      "name_matches": 8,
+      "quantity_matches": 8,
+      "quantity_accuracy": 0.8888888888888888,
+      "quantity_mismatches": [],
+      "missing_items": {
+        "กรีนเมทกระป๋องเฉาก๊วย6กป.": 2
+      },
+      "extra_items": {
+        "กรีนเมทกระป๋อง": 2
+      }
+    },
+    {
+      "file": "dataset_receipt_v2_018.png",
+      "receipt_id": "356ea1ea-74ff-49be-8bd4-0974c28d0f22",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_018_5c683131-f63c-4b3e-9455-e119db259fb0.png",
+      "status": "ok",
+      "items_expected": 7,
+      "name_matches": 7,
+      "quantity_matches": 7,
+      "quantity_accuracy": 1.0,
+      "quantity_mismatches": [],
+      "missing_items": {},
+      "extra_items": {}
+    },
+    {
+      "file": "dataset_receipt_v2_019.png",
+      "receipt_id": "9f3de80f-a72c-42b3-9061-c4b1b5b3767f",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_019_3e8d3ddc-59b8-4f22-b76d-933c45331636.png",
+      "status": "ok",
+      "items_expected": 10,
+      "name_matches": 10,
+      "quantity_matches": 10,
+      "quantity_accuracy": 1.0,
+      "quantity_mismatches": [],
+      "missing_items": {},
+      "extra_items": {}
+    },
+    {
+      "file": "dataset_receipt_v2_020.png",
+      "receipt_id": "a8369790-fccb-4a64-9c16-268e5a176507",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_020_260b32ef-b6d8-4c82-90fb-d1661f9823bb.png",
+      "status": "ok",
+      "items_expected": 7,
+      "name_matches": 7,
+      "quantity_matches": 7,
+      "quantity_accuracy": 1.0,
+      "quantity_mismatches": [],
+      "missing_items": {},
+      "extra_items": {}
+    },
+    {
+      "file": "dataset_receipt_v2_021.png",
+      "receipt_id": "562fcdbf-ac6e-4ed6-ace0-fddf9aa14b25",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_021_a1073c27-5205-4329-b911-48777e90fdf1.png",
+      "status": "ok",
+      "items_expected": 7,
+      "name_matches": 7,
+      "quantity_matches": 7,
+      "quantity_accuracy": 1.0,
+      "quantity_mismatches": [],
+      "missing_items": {},
+      "extra_items": {}
+    },
+    {
+      "file": "dataset_receipt_v2_022.png",
+      "receipt_id": "310d487f-55fa-40f6-b6cc-205f7867da07",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_022_1ba2c960-abe8-45d1-b79f-ad7c71547933.png",
+      "status": "ok",
+      "items_expected": 10,
+      "name_matches": 10,
+      "quantity_matches": 10,
+      "quantity_accuracy": 1.0,
+      "quantity_mismatches": [],
+      "missing_items": {},
+      "extra_items": {}
+    },
+    {
+      "file": "dataset_receipt_v2_023.png",
+      "receipt_id": "d31ce7af-49fe-4473-9bf7-388b796c8601",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_023_9227237a-c7c1-4baf-8232-71c1902c098f.png",
+      "status": "ok",
+      "items_expected": 4,
+      "name_matches": 4,
+      "quantity_matches": 4,
+      "quantity_accuracy": 1.0,
+      "quantity_mismatches": [],
+      "missing_items": {},
+      "extra_items": {}
+    },
+    {
+      "file": "dataset_receipt_v2_024.png",
+      "receipt_id": "241fcff8-3440-4b9c-83c4-8ea55c5cf493",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_024_f69baf86-e951-43bc-889c-859dcd375a75.png",
+      "status": "ok",
+      "items_expected": 9,
+      "name_matches": 9,
+      "quantity_matches": 9,
+      "quantity_accuracy": 1.0,
+      "quantity_mismatches": [],
+      "missing_items": {},
+      "extra_items": {}
+    },
+    {
+      "file": "dataset_receipt_v2_025.png",
+      "receipt_id": "d9fbce0b-e5ae-4594-b169-ec0990f9a58c",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_025_9bdef206-6a03-4c23-8f64-14c453615967.png",
+      "status": "partial",
+      "items_expected": 10,
+      "name_matches": 8,
+      "quantity_matches": 8,
+      "quantity_accuracy": 0.8,
+      "quantity_mismatches": [],
+      "missing_items": {
+        "กรีนนี่รสนมเย็น": 2,
+        "กรีนเมทกระป๋องลิ้นจี่(24กป)": 5
+      },
+      "extra_items": {
+        "กรีนนี่รสชาเขียว": 2,
+        "กรีนเมทเฉาก๊วยกระป๋องลัง": 5
+      }
+    },
+    {
+      "file": "dataset_receipt_v2_026.png",
+      "receipt_id": "8e4a432f-c7d0-417c-8325-3de8f2a5feb8",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_026_48f9d768-f69c-41e9-b61f-a17fddf9dcb1.png",
+      "status": "partial",
+      "items_expected": 10,
+      "name_matches": 9,
+      "quantity_matches": 9,
+      "quantity_accuracy": 0.9,
+      "quantity_mismatches": [],
+      "missing_items": {
+        "กระเป๋าฝึกอาชีพ50บ.(3ชิ้น)": 2
+      },
+      "extra_items": {
+        "กระเป๋าเจ้าหญิง50บ.": 2
+      }
+    },
+    {
+      "file": "dataset_receipt_v2_027.png",
+      "receipt_id": "0e03ec3a-6076-4472-a353-fc74c15dc964",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_027_b2f7d222-55f0-47b6-b014-1d1929df3ee5.png",
+      "status": "partial",
+      "items_expected": 5,
+      "name_matches": 3,
+      "quantity_matches": 3,
+      "quantity_accuracy": 0.6,
+      "quantity_mismatches": [],
+      "missing_items": {
+        "ขนมปังเอ็มดีไส้ครีม": 1,
+        "ก๊อบกอบสาหร่าย20บ.": 2
+      },
+      "extra_items": {}
+    },
+    {
+      "file": "dataset_receipt_v2_028.png",
+      "receipt_id": "4008a31f-65b0-4e56-8663-3929c484ade0",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_028_8f641499-3391-4608-b56e-a6ef9ffa3e1a.png",
+      "status": "ok",
+      "items_expected": 6,
+      "name_matches": 6,
+      "quantity_matches": 6,
+      "quantity_accuracy": 1.0,
+      "quantity_mismatches": [],
+      "missing_items": {},
+      "extra_items": {}
+    },
+    {
+      "file": "dataset_receipt_v2_029.png",
+      "receipt_id": "d5ac1139-48e0-4627-b19c-81e96b16636a",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_029_721ba618-c46f-41b8-bcd2-764166df6915.png",
+      "status": "partial",
+      "items_expected": 10,
+      "name_matches": 9,
+      "quantity_matches": 8,
+      "quantity_accuracy": 0.8,
+      "quantity_mismatches": [
+        {
+          "name": "กรีนนัท รสปลาหมึก 20บ.",
+          "expected_qty": [
+            1
+          ],
+          "predicted_qty": [
+            20
+          ],
+          "match_score": 1.0
+        }
+      ],
+      "missing_items": {
+        "เกมส์บันไดงู5บ.": 4
+      },
+      "extra_items": {
+        "เกมส์บันไดงูกล่อง15บ.": 4
+      }
+    },
+    {
+      "file": "dataset_receipt_v2_030.png",
+      "receipt_id": "d3b273f7-1c89-44a3-95c2-4eedbdfe0708",
+      "image_url": "/api/receipts/image/2025/11/17/dataset_receipt_v2_030_cad884ac-9082-458a-b826-f0cac4c4c8b5.png",
+      "status": "ok",
+      "items_expected": 9,
+      "name_matches": 9,
+      "quantity_matches": 9,
+      "quantity_accuracy": 1.0,
+      "quantity_mismatches": [],
+      "missing_items": {},
+      "extra_items": {}
+    }
+  ],
+  "history": [
+    {
+      "label": "run-1",
+      "timestamp": "2025-11-17T00:10:05.246163Z",
+      "name_accuracy": 0.9329896907216495,
+      "quantity_accuracy": 0.9278350515463918,
+      "items_expected": 194,
+      "name_matches": 181,
+      "quantity_matches": 180
+    },
+    {
+      "label": "post-regenerate-1",
+      "timestamp": "2025-11-17T00:15:26.742612Z",
+      "name_accuracy": 0.9354838709677419,
+      "quantity_accuracy": 0.9354838709677419,
+      "items_expected": 62,
+      "name_matches": 58,
+      "quantity_matches": 58
+    },
+    {
+      "label": "post-regenerate-2",
+      "timestamp": "2025-11-17T00:23:05.643728Z",
+      "name_accuracy": 0.9171597633136095,
+      "quantity_accuracy": 0.9112426035502958,
+      "items_expected": 169,
+      "name_matches": 155,
+      "quantity_matches": 154
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 """Receipt processing API endpoints."""
-from fastapi import APIRouter, HTTPException, Path as PathParam, UploadFile, File, Depends, Request
+from fastapi import APIRouter, HTTPException, Path as PathParam, UploadFile, File, Depends, Request, Query
 from fastapi.responses import FileResponse
 from pathlib import Path
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, update
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from pydantic import BaseModel
 from slowapi import Limiter
 from slowapi.util import get_remote_address
@@ -13,6 +13,7 @@ import logging
 from services.storage_service import storage_service
 from services.transaction_service import create_transaction
 from services.product_service import product_service
+from services.receipt_pipeline import run_receipt_pipeline
 from utils.file_validation import validate_image_file, FileValidationError
 from database import get_db
 from models.receipt import Receipt, ReceiptStatus
@@ -30,8 +31,9 @@ router = APIRouter(prefix="/api/receipts", tags=["receipts"])
 class UploadReceiptResponse(BaseModel):
     """Response for receipt upload."""
     receipt_id: str
-    task_id: str
+    task_id: Optional[str] = None
     message: str
+    result: Optional[Dict[str, Any]] = None
 
 
 class TaskStatusResponse(BaseModel):
@@ -70,7 +72,8 @@ class ConfirmReceiptResponse(BaseModel):
 async def upload_receipt(
     request: Request,
     file: UploadFile = File(..., description="Receipt image file (.jpg or .png)"),
-    db: AsyncSession = Depends(get_db)
+    db: AsyncSession = Depends(get_db),
+    sync: bool = Query(False, description="Process inline and return result immediately"),
 ):
     """Upload receipt image and trigger AI processing.
     
@@ -123,7 +126,24 @@ async def upload_receipt(
         await db.refresh(receipt)
         
         logger.info(f"Created receipt record: {receipt.id}")
-        
+
+        if sync:
+            try:
+                result_data = await run_receipt_pipeline(receipt.id, db)
+            except Exception as exc:  # noqa: BLE001
+                logger.error("Sync receipt processing failed: %s", exc)
+                raise HTTPException(
+                    status_code=500,
+                    detail=f"เกิดข้อผิดพลาดในการประมวลผลทันที: {exc}",
+                )
+
+            return UploadReceiptResponse(
+                receipt_id=receipt.id,
+                task_id=None,
+                message="อัปโหลดและประมวลผลสำเร็จ",
+                result=result_data,
+            )
+
         # Trigger Celery task for AI processing
         task = process_receipt_task.apply_async(args=[receipt.id])
         

@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from 'react';
 
 interface FileDropzoneProps {
-  onFileSelect: (file: File) => void;
+  onFilesSelect: (files: File[]) => void;
   disabled?: boolean;
 }
 
-export const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileSelect, disabled = false }) => {
+export const FileDropzone: React.FC<FileDropzoneProps> = ({ onFilesSelect, disabled = false }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -25,17 +25,32 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileSelect, disabl
     return null;
   };
 
-  const handleFile = useCallback((file: File) => {
-    setError(null);
-    const validationError = validateFile(file);
-    
-    if (validationError) {
-      setError(validationError);
-      return;
+  const handleFiles = useCallback((fileList: FileList | File[]) => {
+    if (disabled) return;
+
+    const files = Array.from(fileList);
+    const validFiles: File[] = [];
+    const errors: string[] = [];
+
+    files.forEach((file) => {
+      const validationError = validateFile(file);
+      if (validationError) {
+        errors.push(`${file.name}: ${validationError}`);
+        return;
+      }
+      validFiles.push(file);
+    });
+
+    if (errors.length) {
+      setError(errors[0]);
+    } else {
+      setError(null);
     }
 
-    onFileSelect(file);
-  }, [onFileSelect]);
+    if (validFiles.length) {
+      onFilesSelect(validFiles);
+    }
+  }, [disabled, onFilesSelect]);
 
   const handleDrop = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -45,9 +60,9 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileSelect, disabl
 
     const files = e.dataTransfer.files;
     if (files.length > 0) {
-      handleFile(files[0]);
+      handleFiles(files);
     }
-  }, [disabled, handleFile]);
+  }, [disabled, handleFiles]);
 
   const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -64,9 +79,10 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileSelect, disabl
   const handleFileInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (files && files.length > 0) {
-      handleFile(files[0]);
+      handleFiles(files);
+      e.target.value = '';
     }
-  }, [handleFile]);
+  }, [handleFiles]);
 
   return (
     <div className="w-full">
@@ -83,6 +99,7 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileSelect, disabl
         <input
           type="file"
           accept=".jpg,.jpeg,.png"
+          multiple
           onChange={handleFileInput}
           disabled={disabled}
           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
@@ -108,11 +125,11 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({ onFileSelect, disabl
             <span className="font-medium text-blue-600 hover:text-blue-500">
               คลิกเพื่อเลือกไฟล์
             </span>
-            {' '}หรือลากไฟล์มาวางที่นี่
+            {' '}หรือลากไฟล์หลายไฟล์มาวางที่นี่
           </div>
           
           <p className="text-xs text-gray-500">
-            รองรับไฟล์ .jpg และ .png ขนาดไม่เกิน 10MB
+            รองรับไฟล์ .jpg และ .png ขนาดไม่เกิน 10MB (เลือกได้หลายไฟล์)
           </p>
         </div>
       </div>
